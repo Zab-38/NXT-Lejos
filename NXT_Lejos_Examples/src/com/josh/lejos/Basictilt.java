@@ -22,7 +22,7 @@ public class Basictilt extends BaseLejos {
 	//	LCD.drawString("Rot: " + Long.toString(rotationsPerminute), 0, 2);
 	//	LCD.drawString("RPM: " + Long.toString(rpm), 0, 3);
 
-		int notekey = angle *5;
+		int notekey = angle *8;
 		
 		if (angle > 90) {
 			LCD.drawString("You are flat     ", 0,4 );
