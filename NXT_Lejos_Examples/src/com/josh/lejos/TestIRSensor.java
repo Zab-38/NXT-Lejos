@@ -1,3 +1,4 @@
+package com.josh.lejos;
 import javax.microedition.lcdui.Screen;
 
 import com.josh.lejos.util.BaseLejos;
