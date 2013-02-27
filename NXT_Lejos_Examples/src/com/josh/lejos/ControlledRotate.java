@@ -11,22 +11,6 @@ public class ControlledRotate extends BaseLejos {
 
 	public ControlledRotate()
 	{
-		Button.LEFT.addButtonListener(new ButtonListener() {
-			
-			@Override
-			public void buttonReleased(Button b) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void buttonPressed(Button b) {
-
-			}
-		});
-		
-		
-		
 		
 		Button.ENTER.addButtonListener(new ButtonListener() {
 			
