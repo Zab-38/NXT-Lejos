@@ -5,14 +5,19 @@ import javax.microedition.lcdui.Screen;
 import com.josh.lejos.util.BaseLejos;
 
 import lejos.nxt.LCD;
+import lejos.nxt.Motor;
 import lejos.nxt.SensorPort;
 import lejos.nxt.addon.OpticalDistanceSensor;
+import lejos.util.Timer;
+import lejos.util.TimerListener;
 
 public class TestIRSensor extends BaseLejos {
 
+	Timer timer =null;
 	OpticalDistanceSensor sensor = new OpticalDistanceSensor(SensorPort.S1);
 	int distance = 0;
 	int x = 0;
+	int time = 0;
 
 	public int getdistance() {
 
@@ -20,7 +25,7 @@ public class TestIRSensor extends BaseLejos {
 
 	}
 
-	public void display() {
+	public void determineRange() {
 
 		distance = getdistance();
 
@@ -28,30 +33,53 @@ public class TestIRSensor extends BaseLejos {
 
 	@Override
 	public void run() {
+		createAndStartTimer();
+		
+		
 		while (true) {
-			clearscreen();
-			display();
-			wave();
+			if (time > 0) {
+				timer.stop();
+				
+				Motor.A.setSpeed(0);
+				
+			}
+			else
+			{
+				motor();
+				determineRange();
+				wave();
+			}
 		}
 	}
 
-	public void clearscreen() {
-		if (x > 100) {
-			LCD.clear();
-			x = 0;
-		}
-		;
 
+
+	
+
+	public void motor() {
+		Motor.A.setSpeed(36);
+		Motor.A.forward();
+	}
+
+	public void createAndStartTimer() {
+		timer = new Timer(10000, new TimerListener() {
+
+			@Override
+			public void timedOut() {
+				time = time + 1;
+				System.out.println(time);
+
+			}
+		});
+		timer.start();
 	}
 
 	public void wave() {
-
+      
 		int y = 64 - distance / 15;
 		// LCD.drawString("x",distance/150, vertical);
 		LCD.setPixel(x, y, 1);
-		LCD.setPixel(x + 1, y, 1);
-		LCD.setPixel(x, y + 1, 1);
-		LCD.setPixel(x + 1, y + 1, 1);
+
 		x = x + 1;
 
 		try {
