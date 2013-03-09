@@ -43,6 +43,7 @@ public class SegwayPilotDemo implements MoveListener {
 			Thread.sleep(2000);
 		}
 	}
+	
 
 	public void moveStarted(Move move, MoveProvider mp) {
 		System.out.println("MOVE STARTED");

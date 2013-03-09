@@ -18,6 +18,7 @@ public class TestIRSensor extends BaseLejos {
 	int distance = 0;
 	int x = 0;
 	int time = 0;
+	int move = x;
 
 	public int getdistance() {
 
@@ -29,6 +30,18 @@ public class TestIRSensor extends BaseLejos {
 
 		distance = getdistance();
 
+	}
+	
+	public void sendinfo() {
+	try {
+		Thread.sleep(100);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	
+	
 	}
 
 	@Override
@@ -44,10 +57,12 @@ public class TestIRSensor extends BaseLejos {
 				
 			}
 			else
-			{
+			{   
+
 				motor();
 				determineRange();
 				wave();
+				sendinfo();
 			}
 		}
 	}
@@ -67,7 +82,7 @@ public class TestIRSensor extends BaseLejos {
 			@Override
 			public void timedOut() {
 				time = time + 1;
-				System.out.println(time);
+			
 
 			}
 		});
