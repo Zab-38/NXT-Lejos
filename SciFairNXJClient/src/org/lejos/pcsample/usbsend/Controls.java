@@ -39,24 +39,15 @@ public class Controls {
 	private void createButton1()
 	{
 		setConstraints();
-		button1 = new JButton("Hey");
+		button1 = new JButton("Start");
 		button1.addActionListener(new ActionListener() {
 			
+			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 			
-				TwoPanelForm twoPanelForm = (TwoPanelForm) parent.getParent();
-				Graphics g = twoPanelForm.getDrawPanel().getGraphics();
-
-
-				NXTCommunications comm = NXTCommunications.singleton();
-				comm.sendMsg('a', Math.random()*100);
-				Msg msg = comm.rcvMsg();
-				
-				if(msg!=null)
-				{
-					g.draw3DRect(5, -(int)msg.value, 20, 20, true);
-				}
+				MyFrame.timer.start();
 				
 				
 			}
@@ -66,7 +57,15 @@ public class Controls {
 	private void createButton2()
 	{
 		setConstraints();
-		button2 = new JButton("You");
+		button2 = new JButton("Stop");
+		button2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				MyFrame.timer.stop();
+			}
+		});
 		
 		parent.add(button2,gridbagConstraints);
 	}

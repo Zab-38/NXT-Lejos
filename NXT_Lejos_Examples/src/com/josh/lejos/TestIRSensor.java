@@ -1,15 +1,13 @@
 package com.josh.lejos;
 
-import javax.microedition.lcdui.Screen;
-
-import org.scifair.util.BaseLejos;
-
 import lejos.nxt.LCD;
 import lejos.nxt.Motor;
 import lejos.nxt.SensorPort;
 import lejos.nxt.addon.OpticalDistanceSensor;
 import lejos.util.Timer;
 import lejos.util.TimerListener;
+
+import org.scifair.util.BaseLejos;
 
 public class TestIRSensor extends BaseLejos {
 
