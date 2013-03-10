@@ -1,10 +1,11 @@
 package com.josh.lejos;
 
+import org.scifair.util.BaseLejos;
+
 import lejos.nxt.LCD;
 import lejos.nxt.SensorPort;
 import lejos.nxt.Sound;
 import lejos.nxt.addon.AngleSensor;
-import com.josh.lejos.util.BaseLejos;
 public class Basictilt extends BaseLejos {
 	AngleSensor sensor = new AngleSensor(SensorPort.S1);
 

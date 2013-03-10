@@ -1,13 +1,13 @@
 package com.josh.lejos;
 
+import org.scifair.util.BaseLejos;
+
 import lejos.nxt.Button;
 import lejos.nxt.ButtonListener;
 import lejos.nxt.ColorSensor;
 import lejos.nxt.LCD;
 import lejos.nxt.SensorPort;
 import lejos.robotics.Color;
-
-import com.josh.lejos.util.BaseLejos;
 
 public class Colorsensorthing extends BaseLejos {
 	

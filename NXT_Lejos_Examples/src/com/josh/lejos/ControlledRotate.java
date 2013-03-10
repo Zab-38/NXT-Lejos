@@ -1,10 +1,10 @@
 package com.josh.lejos;
 
+import org.scifair.util.BaseLejos;
+
 import lejos.nxt.Button;
 import lejos.nxt.ButtonListener;
 import lejos.nxt.Motor;
-
-import com.josh.lejos.util.BaseLejos;
  
 public class ControlledRotate extends BaseLejos {
 

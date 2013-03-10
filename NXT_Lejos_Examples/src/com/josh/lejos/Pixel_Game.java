@@ -1,12 +1,13 @@
 package com.josh.lejos;
 
+import org.scifair.util.BaseLejos;
+
 import lejos.nxt.Button;
 import lejos.nxt.ButtonListener;
 import lejos.nxt.LCD;
 import lejos.nxt.SensorPort;
 import lejos.nxt.TouchSensor;
 
-import com.josh.lejos.util.BaseLejos;
 import com.josh.lejos.util.Sprite;
 
 public class Pixel_Game extends BaseLejos {

@@ -2,7 +2,7 @@ package com.josh.lejos;
 
 import javax.microedition.lcdui.Screen;
 
-import com.josh.lejos.util.BaseLejos;
+import org.scifair.util.BaseLejos;
 
 import lejos.nxt.LCD;
 import lejos.nxt.Motor;

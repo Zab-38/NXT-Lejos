@@ -1,6 +1,7 @@
 package angles;
 
-import communications.BaseLejos;
+import org.scifair.util.BaseLejos;
+
 
 
 

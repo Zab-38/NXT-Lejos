@@ -1,6 +1,6 @@
 package com.josh.lejos;
 
-import com.josh.lejos.util.BaseLejos;
+import org.scifair.util.BaseLejos;
 
 import lejos.nxt.Button;
 import lejos.nxt.ButtonListener;

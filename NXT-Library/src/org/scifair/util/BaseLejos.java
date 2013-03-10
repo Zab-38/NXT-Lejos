@@ -1,4 +1,4 @@
-package communications;
+package org.scifair.util;
 
 import lejos.nxt.Button;
 import lejos.nxt.ButtonListener;
