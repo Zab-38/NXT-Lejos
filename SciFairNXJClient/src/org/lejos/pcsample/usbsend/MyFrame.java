@@ -1,25 +1,20 @@
 package org.lejos.pcsample.usbsend;
 
 import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import javax.swing.JFrame;
-import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import org.lejos.pcsample.usbsend.NXTCommunications.Msg;
+import org.scifair.controller.NXTCommunications;
 
-public class MyFrame extends JFrame implements ActionListener {
+@SuppressWarnings("serial")
+public class MyFrame extends JFrame {
 
-	private int x = 0;	
 	TwoPanelForm twoPanelForm;
-	public static Timer timer = null;
 	NXTCommunications comm = NXTCommunications.singleton();
 	public MyFrame() {
 		super();
@@ -76,32 +71,12 @@ public class MyFrame extends JFrame implements ActionListener {
 		});
 		
 		
-		timer = new Timer(50, this);
+		
 		
 	};
 	
 	
 	
-	
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-		
-		Graphics g = twoPanelForm.getDrawPanel().getGraphics();
-
-
-		NXTCommunications comm = NXTCommunications.singleton();
-		comm.sendMsg('d', 0);
-		Msg msg = comm.rcvMsg();
-		
-		if(msg!=null)
-		{
-			g.draw3DRect(x++,(int)msg.value, 20, 20, true);
-		}
-		
-		
-	}
 	public static void main(String[] args) {
 		
 		MyFrame frame = new MyFrame();

@@ -1,20 +1,19 @@
 package communications;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.EOFException;
 import java.io.IOException;
-
-import org.scifair.util.BaseLejos;
 
 import lejos.nxt.LCD;
 import lejos.nxt.Motor;
 import lejos.nxt.SensorPort;
-import lejos.nxt.Sound;
 import lejos.nxt.addon.OpticalDistanceSensor;
+import lejos.nxt.comm.Bluetooth;
+import lejos.nxt.comm.NXTConnection;
 import lejos.nxt.comm.USB;
-import lejos.nxt.comm.USBConnection;
 import lejos.robotics.RegulatedMotor;
 import lejos.robotics.RegulatedMotorListener;
+
+import org.scifair.util.BaseLejos;
 
 /**
  * Test of Java streams over USB.
@@ -26,7 +25,7 @@ import lejos.robotics.RegulatedMotorListener;
 public class LejosServer extends BaseLejos{
 	DataOutputStream dOut;
 	DataInputStream dIn;
-	USBConnection conn;
+	NXTConnection conn;
 	private int speed = 90;
 	private int rotA = 340;
 	private int rotB = 0;
@@ -55,7 +54,8 @@ public class LejosServer extends BaseLejos{
 		});
 		
 		LCD.drawString("waiting", 0, 0);
-		conn = USB.waitForConnection();
+		conn = Bluetooth.waitForConnection();
+		
 		dOut = conn.openDataOutputStream();
 		dIn = conn.openDataInputStream();
 		while (true) 
@@ -89,7 +89,6 @@ public class LejosServer extends BaseLejos{
 	
 	private void sendDistance() {
 
-//		Sound.beep();
 		double distance = sensor.getDistance();
 		
 		try {

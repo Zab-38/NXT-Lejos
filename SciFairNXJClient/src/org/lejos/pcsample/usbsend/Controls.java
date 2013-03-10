@@ -1,7 +1,6 @@
 package org.lejos.pcsample.usbsend;
 
 import java.awt.Container;
-import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -11,7 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import org.lejos.pcsample.usbsend.NXTCommunications.Msg;
+import org.scifair.controller.Controller;
 
 public class Controls {
 
@@ -47,7 +46,7 @@ public class Controls {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 			
-				MyFrame.timer.start();
+				Controller.timer.start();
 				
 				
 			}
@@ -63,7 +62,7 @@ public class Controls {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				MyFrame.timer.stop();
+				Controller.timer.stop();
 			}
 		});
 		
