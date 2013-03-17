@@ -1,9 +1,14 @@
 package org.scifair.controller;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
 
+import javax.imageio.ImageIO;
 import javax.swing.Timer;
 
 import org.lejos.pcsample.usbsend.DrawPanel;
@@ -21,7 +26,7 @@ public class Controller implements ActionListener{
 	public void setDrawPanel(DrawPanel drawPanel) {
 		this.drawPanel = drawPanel;
 	}
-
+ 
 	private static Controller controller = null;
 
 	private Controller()
@@ -43,6 +48,14 @@ public class Controller implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(drawPanel==null)return;
 		
+		InputStream is = getClass().getResourceAsStream("Poisonous_potato");
+		BufferedImage img = null;
+		try {
+		    img = ImageIO.read(is);
+		} catch (IOException ex) {
+		}
+		
+		//img has the image data, now draw it on the scrween
 		Graphics g = drawPanel.getGraphics();
 		NXTCommunications comm = NXTCommunications.singleton();
 		comm.sendMsg('d', 0);
@@ -50,7 +63,9 @@ public class Controller implements ActionListener{
 		
 		if(msg!=null)
 		{
+			//here is the drawing code
 			g.draw3DRect(x++,(int)msg.value, 20, 20, true);
+			g.drawImage(img, x++, (int)msg.value, 300, 300, Color.white, null);
 		}
 
 		
