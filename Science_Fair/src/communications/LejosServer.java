@@ -54,7 +54,7 @@ public class LejosServer extends BaseLejos{
 		});
 		
 		LCD.drawString("waiting", 0, 0);
-		conn = Bluetooth.waitForConnection();
+		conn = USB.waitForConnection();
 		
 		dOut = conn.openDataOutputStream();
 		dIn = conn.openDataInputStream();

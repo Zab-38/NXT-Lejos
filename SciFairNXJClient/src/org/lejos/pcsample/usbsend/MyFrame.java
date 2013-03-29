@@ -16,6 +16,7 @@ public class MyFrame extends JFrame {
 
 	TwoPanelForm twoPanelForm;
 	NXTCommunications comm = NXTCommunications.singleton();
+	
 	public MyFrame() {
 		super();
 		try {

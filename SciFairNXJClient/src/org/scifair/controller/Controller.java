@@ -17,6 +17,8 @@ import org.scifair.controller.NXTCommunications.Msg;
 public class Controller implements ActionListener{
 	public static Timer timer = null;
 	private int x;
+	int line = 0;
+	int afterline = 0;
 
 	DrawPanel  drawPanel = null;
 	public DrawPanel getDrawPanel() {
@@ -48,7 +50,7 @@ public class Controller implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(drawPanel==null)return;
 		
-		InputStream is = getClass().getResourceAsStream("Poisonous_potato");
+		InputStream is = getClass().getResourceAsStream("poisonous_potato.png");
 		BufferedImage img = null;
 		try {
 		    img = ImageIO.read(is);
@@ -64,8 +66,9 @@ public class Controller implements ActionListener{
 		if(msg!=null)
 		{
 			//here is the drawing code
-			g.draw3DRect(x++,(int)msg.value, 20, 20, true);
-			g.drawImage(img, x++, (int)msg.value, 300, 300, Color.white, null);
+			
+			g.draw3DRect(x++,(int)msg.value, 1, 1, true);
+//			g.drawImage(img, x++, (int)msg.value, 300, 300, Color.white, null);
 		}
 
 		
