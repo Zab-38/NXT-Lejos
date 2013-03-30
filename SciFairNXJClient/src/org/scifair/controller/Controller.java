@@ -66,34 +66,20 @@ public class Controller implements ActionListener {
 		
 		Msg msg = comm.rcvMsg();
 
-		int xNew, yNew;
-
 		if (msg != null) {
-			// here is the drawing code
+			double distance = msg.distance;
+			double angle = (((double)msg.angle) / 360.0) * 2.0*Math.PI;
+			
+			System.out.println("angle in Radians: " + angle);
+			
+		    int x =  (int) (Math.cos(angle) * distance);
+		    int y = (int) (Math.sin(angle)* distance);
+		    
+		    int centerX = drawPanel.getWidth()/2;
+		    int centerY = drawPanel.getHeight()/2;
+		    
+		    g.drawLine(centerX, centerY, centerX+x, centerY+y);
 
-			x  	New = xOld + 8;
-			yNew = (int) msg.value / 8 + level ;
-
-			g.draw3DRect(xNew, yNew, 1, 1, true);
-	 		g.drawLine(drawPanel.getWidth()/2, drawPanel.getHeight()/2, xNew, yNew);
- 
-			System.out.println(xNew);
-		//	if (xNew >= drawPanel.getWidth()) {
-		//		level = level + 250;
-			//	if (level == 1000) {
-			//		g.setColor(Color.white);
-					g.fillRect(0, 0, drawPanel.getWidth(), drawPanel.getHeight());	
-		    level = 0;		
-				}
-				
-				
-
-				xOld = 0;
-				xNew = 0;
-			} else {
-				xOld = xNew;
-				yOld = yNew;
-			}
 		}
 
 	}

@@ -11,7 +11,8 @@ public class NXTCommunications {
 
 	public class Msg {
 		public char msg;
-		public double value;
+		public double distance;
+		public int angle;
 	}
 
 	NXTConnector conn = new NXTConnector();
@@ -85,10 +86,13 @@ public class NXTCommunications {
 		try {
 			char ch = inDat.readChar();
 			double dbl = inDat.readDouble();
-
+			int angle = inDat.readInt();
+			
+			
 			Msg msg = new Msg();
 			msg.msg = ch;
-			msg.value = dbl;
+			msg.distance = dbl;
+			msg.angle = angle;
 			return msg;
 		} catch (IOException e) {
 			e.printStackTrace();
