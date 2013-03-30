@@ -90,10 +90,11 @@ public class LejosServer extends BaseLejos{
 	private void sendDistance() {
 
 		double distance = sensor.getDistance();
-		
+		int angle = Motor.A.getPosition();
 		try {
 			dOut.writeChar('a');
 			dOut.writeDouble(distance);
+			dOut.writeInt(angle);
 			dOut.flush();
 		} catch (IOException e) {
 			e.printStackTrace();
