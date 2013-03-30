@@ -61,6 +61,7 @@ public class MyFrame extends JFrame {
 				comm.close();
 			}
 			
+			
 			@Override
 			public void windowClosed(WindowEvent e) {
 				

@@ -71,17 +71,17 @@ public class Controller implements ActionListener {
 		if (msg != null) {
 			// here is the drawing code
 
-			xNew = xOld + 8;
-			yNew = (int) msg.value / 10 + level ;
+			x  	New = xOld + 8;
+			yNew = (int) msg.value / 8 + level ;
 
 			g.draw3DRect(xNew, yNew, 1, 1, true);
-			g.drawLine(xOld, yOld, xNew, yNew);
-
+	 		g.drawLine(drawPanel.getWidth()/2, drawPanel.getHeight()/2, xNew, yNew);
+ 
 			System.out.println(xNew);
-			if (xNew >= drawPanel.getWidth()) {
-				level = level + 250;
-				if (level == 1000) {
-					g.setColor(Color.white);
+		//	if (xNew >= drawPanel.getWidth()) {
+		//		level = level + 250;
+			//	if (level == 1000) {
+			//		g.setColor(Color.white);
 					g.fillRect(0, 0, drawPanel.getWidth(), drawPanel.getHeight());	
 		    level = 0;		
 				}
