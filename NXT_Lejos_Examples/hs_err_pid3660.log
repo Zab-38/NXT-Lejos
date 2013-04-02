@@ -1,0 +1,132 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (javaClasses.cpp:129), pid=3660, tid=6984
+#  fatal error: Invalid layout of preloaded class
+#
+# JRE version: 7.0_11-b21
+# Java VM: Java HotSpot(TM) Client VM (23.6-b04 mixed mode windows-x86 )
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x001bac00):  JavaThread "Unknown thread" [_thread_in_vm, id=6984, stack(0x01d90000,0x01de0000)]
+
+Stack: [0x01d90000,0x01de0000],  sp=0x01ddf9a4,  free space=318k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x16f311]
+V  [jvm.dll+0x1694c6]
+V  [jvm.dll+0x2082f]
+V  [jvm.dll+0x208b6]
+V  [jvm.dll+0x2e64d]
+V  [jvm.dll+0x2e8f9]
+V  [jvm.dll+0x77d01]
+V  [jvm.dll+0x780bb]
+V  [jvm.dll+0x129101]
+V  [jvm.dll+0x149baa]
+V  [jvm.dll+0xa997f]
+C  [javaw.exe+0x13ca]
+C  [javaw.exe+0x1e3c]
+C  [javaw.exe+0xa5e3]
+C  [javaw.exe+0xa66d]
+C  [kernel32.dll+0x133aa]  BaseThreadInitThunk+0x12
+C  [ntdll.dll+0x39ef2]  RtlInitializeExceptionChain+0x63
+C  [ntdll.dll+0x39ec5]  RtlInitializeExceptionChain+0x36
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x001bac00 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=6984, stack(0x01d90000,0x01de0000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (10 events):
+Event: 0.029 loading class 0x01e02db8
+Event: 0.029 loading class 0x01e02db8 done
+Event: 0.030 loading class 0x01e02e08
+Event: 0.030 loading class 0x01e03958
+Event: 0.030 loading class 0x01e03958 done
+Event: 0.030 loading class 0x01e28790
+Event: 0.030 loading class 0x01e28790 done
+Event: 0.030 loading class 0x01e02e08 done
+Event: 0.030 loading class 0x01e02de0
+Event: 0.030 loading class 0x01e02de0 done
+
+
+Dynamic libraries:
+0x00100000 - 0x0012f000 	C:\Program Files (x86)\Java\jre7\bin\javaw.exe
+0x77740000 - 0x778c0000 	C:\Windows\SysWOW64\ntdll.dll
+0x768e0000 - 0x769f0000 	C:\Windows\syswow64\kernel32.dll
+0x765c0000 - 0x76607000 	C:\Windows\syswow64\KERNELBASE.dll
+0x76740000 - 0x767e0000 	C:\Windows\syswow64\ADVAPI32.dll
+0x767e0000 - 0x7688c000 	C:\Windows\syswow64\msvcrt.dll
+0x74f30000 - 0x74f49000 	C:\Windows\SysWOW64\sechost.dll
+0x750b0000 - 0x751a0000 	C:\Windows\syswow64\RPCRT4.dll
+0x74e20000 - 0x74e80000 	C:\Windows\syswow64\SspiCli.dll
+0x74e10000 - 0x74e1c000 	C:\Windows\syswow64\CRYPTBASE.dll
+0x76210000 - 0x76310000 	C:\Windows\syswow64\USER32.dll
+0x76010000 - 0x760a0000 	C:\Windows\syswow64\GDI32.dll
+0x77710000 - 0x7771a000 	C:\Windows\syswow64\LPK.dll
+0x766a0000 - 0x7673d000 	C:\Windows\syswow64\USP10.dll
+0x72c30000 - 0x72dce000 	C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_41e6975e2bd6f2b2\COMCTL32.dll
+0x75350000 - 0x753a7000 	C:\Windows\syswow64\SHLWAPI.dll
+0x76610000 - 0x76670000 	C:\Windows\system32\IMM32.DLL
+0x76db0000 - 0x76e7c000 	C:\Windows\syswow64\MSCTF.dll
+0x6cee0000 - 0x6cf9e000 	C:\Program Files (x86)\Java\jre7\bin\msvcr100.dll
+0x73bd0000 - 0x73f1c000 	C:\Program Files (x86)\Java\jre7\bin\client\jvm.dll
+0x69990000 - 0x69997000 	C:\Windows\system32\WSOCK32.dll
+0x76550000 - 0x76585000 	C:\Windows\syswow64\WS2_32.dll
+0x760a0000 - 0x760a6000 	C:\Windows\syswow64\NSI.dll
+0x6e040000 - 0x6e072000 	C:\Windows\system32\WINMM.dll
+0x75340000 - 0x75345000 	C:\Windows\syswow64\PSAPI.DLL
+0x745f0000 - 0x745fc000 	C:\Program Files (x86)\Java\jre7\bin\verify.dll
+0x745d0000 - 0x745f0000 	C:\Program Files (x86)\Java\jre7\bin\java.dll
+0x74570000 - 0x74583000 	C:\Program Files (x86)\Java\jre7\bin\zip.dll
+0x73250000 - 0x7333b000 	C:\Windows\system32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=Cp1252 -Xbootclasspath:C:\Program Files (x86)\leJOS NXJ\lib\nxt\classes.jar 
+java_command: com.josh.lejos.Sendata
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.7.0_04
+PATH=C:/Program Files (x86)/Java/jre7/bin/client;C:/Program Files (x86)/Java/jre7/bin;C:/Program Files (x86)/Java/jre7/lib/i386;C:\Program Files (x86)\AMD APP\bin\x86_64;C:\Program Files (x86)\AMD APP\bin\x86;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\VXIPNP\WinNT\Bin;C:\Program Files (x86)\leJOS NXJ\bin;C:\Program Files (x86)\eclipse-SDK-4.2.1-win32\eclipse;
+USERNAME=FPNMB
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 42 Stepping 7, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 , 64 bit Build 7601 Service Pack 1
+
+CPU:total 4 (4 cores per cpu, 1 threads per core) family 6 model 42 stepping 7, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, tsc, tscinvbit
+
+Memory: 4k page, physical 8368428k(5649844k free), swap 16735000k(13070948k free)
+
+vm_info: Java HotSpot(TM) Client VM (23.6-b04) for windows-x86 JRE (1.7.0_11-b21), built on Jan 12 2013 02:19:22 by "java_re" with unknown MS VC++:1600
+
+time: Mon Apr 01 16:16:54 2013
+elapsed time: 0 seconds
+

@@ -9,6 +9,7 @@ import java.awt.Insets;
 import javax.swing.JPanel;
 
 import org.scifair.controller.Controller;
+import org.scifair.controller.ControllerExperiment;
 
 @SuppressWarnings("serial")
 public class TwoPanelForm extends JPanel{
@@ -52,7 +53,7 @@ public class TwoPanelForm extends JPanel{
 	private void createDrawPanel()
 	{
 		drawPanel = new DrawPanel();
-		Controller.singleton().setDrawPanel(drawPanel);
+		ControllerExperiment.singleton().setDrawPanel(drawPanel);
 		
 		drawPanel.setBackground(Color.WHITE);
 		

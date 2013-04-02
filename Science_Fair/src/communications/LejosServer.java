@@ -27,7 +27,7 @@ public class LejosServer extends BaseLejos{
 	DataInputStream dIn;
 	NXTConnection conn;
 	private int speed = 90;
-	private int rotA = 340;
+	private int rotA = 360;
 	private int rotB = 0;
 	
 	OpticalDistanceSensor sensor = new OpticalDistanceSensor(SensorPort.S1);
@@ -61,7 +61,7 @@ public class LejosServer extends BaseLejos{
 		while (true) 
 		{
             char b;
-            double value;
+            double value=0;
             try
             {
             	if(dIn.available()== 0)continue;
