@@ -27,6 +27,7 @@ import com.example.requests.RequestStopSweep;
 public class Controller{
 	private Point newPoint = null;
 	private double lastAngle = 0;
+	
 
 	/**
 	 * used for timed requests from NXT data and posting UI updates based on this information
@@ -117,7 +118,12 @@ public class Controller{
 			this.lastAngle  = radians;
 			
 			point.x = (int) (Math.cos(radians)*distance*0.2);
-			point.y = (int) (Math.sin(radians)*distance*0.2); 
+			point.y = (int) (Math.sin(radians)*distance*0.2);
+			
+			if(distance*0.2 < 100)
+			{
+				SoundPlayer.singleton().playSound(SoundPlayer.Sound.S1);
+			}
 			
 		} catch (IOException e) {
 			e.printStackTrace();

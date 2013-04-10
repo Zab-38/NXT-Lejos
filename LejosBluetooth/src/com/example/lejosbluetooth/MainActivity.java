@@ -33,6 +33,8 @@ public class MainActivity extends Activity {
 		drawView = (CustomView)findViewById(R.id.customView);
 		textView = (TextView) findViewById(R.id.textView);
 		
+		//initializes sound infrastructure
+		SoundPlayer.singleton().init(getApplicationContext());
 		
 
 		buttonStart.setOnTouchListener(new OnTouchListener() {
