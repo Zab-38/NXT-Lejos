@@ -28,7 +28,7 @@ public class BlueToothServer extends BaseLejos{
 	NXTConnection conn;
 	
 	private int speed = 90;
-	private int rotA = 340;
+	private int rotA = 359;
 	private int rotB = 0;
 	
 	OpticalDistanceSensor sensor = new OpticalDistanceSensor(SensorPort.S1);
@@ -121,11 +121,12 @@ public class BlueToothServer extends BaseLejos{
 		speed = (-speed);
 		if(speed < 0)
 		{
-			Motor.A.rotateTo(rotA, true);
+			Motor.A.rotate(rotA, true);
 		}
 		else
 		{
-			Motor.A.rotateTo(rotB,true);
+			Motor.A.rotate
+			(rotB,true);
 		}
 		Motor.A.setSpeed(speed);
 		
