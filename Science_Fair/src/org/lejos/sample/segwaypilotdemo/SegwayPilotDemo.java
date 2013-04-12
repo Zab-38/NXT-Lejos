@@ -64,6 +64,7 @@ public class SegwayPilotDemo extends BaseLejos implements MoveListener{
 	public static void main(String [] args) throws InterruptedException {
 		SegwayPilotDemo demo = new SegwayPilotDemo();
 		demo.run();
+		//hey!
 		
 	}
 	
