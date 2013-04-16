@@ -22,7 +22,7 @@ import org.scifair.util.BaseLejos;
  * @author Lawrie Griffiths
  *
  */
-public class BlueToothServer extends BaseLejos{
+public class Infraredmain extends BaseLejos{
 	DataOutputStream dOut;
 	DataInputStream dIn;
 	NXTConnection conn;
@@ -34,7 +34,7 @@ public class BlueToothServer extends BaseLejos{
 	OpticalDistanceSensor sensor = new OpticalDistanceSensor(SensorPort.S1);
 
 	
-	public BlueToothServer() {
+	public Infraredmain() {
 		Motor.A.addListener(new RegulatedMotorListener() {
 			
 
@@ -147,7 +147,7 @@ public class BlueToothServer extends BaseLejos{
 	public static void main(String [] args) throws Exception 
 	{
 
-		BlueToothServer usb = new BlueToothServer();
+		Infraredmain usb = new Infraredmain();
 		usb.run();
 	}
 }
