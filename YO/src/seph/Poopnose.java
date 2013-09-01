@@ -6,14 +6,14 @@ package seph;
  *
  *Also, not sure what the purpose of this class is.  
  */
-public class poopnose {
+public class Poopnose {
 	double plsstopleaningagainstme = 300*7.9; 
 
 	private void math() {
 		System.out.println(plsstopleaningagainstme);
 	}
 	public static void main(String[] args) {
-		poopnose nosepoop = new poopnose();
+		Poopnose nosepoop = new Poopnose();
 		{	while (true)
 		nosepoop.math();
 	}
