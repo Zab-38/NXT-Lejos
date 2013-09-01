@@ -128,6 +128,10 @@ public class SegwaySciFair extends BaseLejos implements MoveListener{
 		System.out.println("Left!!");
 		pilot.rotate(-45);	
 	} 
+	boolean forward; 
+	
+	
+	
 
 
 	public void moveStarted(Move move, MoveProvider mp) {
