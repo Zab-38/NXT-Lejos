@@ -7,8 +7,11 @@ public class Pi {
 	double sign = 1;
 	
 	
-	public void ()
+	public void myfunction()
 	
+	{
+		
+	}
 	
 
 	public static void main(String[] args) {
