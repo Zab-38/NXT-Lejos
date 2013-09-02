@@ -1,20 +1,19 @@
 package seph;
 
 public class Eulers {
-	int denominator = 1;
-	int increase = 1;
+	double denominator = 1;
+	double increase = 1;
 	int count = 0;
-	int start = 1;
-	int finish = 0;
+	double sum = 0;
 	public void changedenominator() {
 	    denominator = denominator * increase;
 	    increase = increase + 1;
 	}
 	
-	public void divide() {
-		start = start / denominator;
-		finish = finish + start;
-		System.out.println(finish);
+	public void addNextTermToSum() {
+		
+		sum = sum + 1.0/denominator;
+		System.out.println(sum+1);
 	} 
 	//WHAT IS WRONG HEEEREEE :( (not just there but you will see what i mean when it is run :D)
 	public int add() {
@@ -24,14 +23,14 @@ public class Eulers {
 		count = count + 1;
 		return count;
 	}
-	
+	//The natural longarithm is the area under a certain marked area on a x y grid.
 	public static void main(String[] args) {
 		Eulers e = new Eulers();
 		
 		while (e.count < 25)
 		{
 			e.changedenominator();
-			e.divide();
+			e.addNextTermToSum();
 			e.add();
 		}
 		
