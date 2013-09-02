@@ -10,6 +10,8 @@ public class Eulers {
 	}
 	//WHAT IS WRONG HEEEREEE :( (not just there but you will see what i mean when it is run :D)
 	public int count() {
+		
+		//count will exist and not exist in this method.  I think you want count to exist inside the class
 		int count = 0;
 		count = count + 1;
 		return count;
