@@ -3,7 +3,7 @@ package seph;
 public class Eulers {
 	int denominator = 1;
 	int increase = 1;
-	
+	int count = 0;
 	public void changedenominator() {
 	    denominator = denominator * increase;
 	    increase = increase + 1;
@@ -12,7 +12,7 @@ public class Eulers {
 	public int count() {
 		
 		//count will exist and not exist in this method.  I think you want count to exist inside the class
-		int count = 0;
+		
 		count = count + 1;
 		return count;
 	}
