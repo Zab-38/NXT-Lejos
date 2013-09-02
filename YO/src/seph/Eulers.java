@@ -14,10 +14,17 @@ public class Eulers {
 	}
 	
 	public void add() {
+		
+//		 1 + 1/1! + 1/2! + 1/3! + 1/4! + 1/5! + 1/6! + 1/7! +
+//		 in other words: answer + 1/denominator 
+
+//		IT IS NOT  1+ 1! + 2! + 3! 
 		answer = answer + denominator;
 	}
 	
 	public void answer() {
+		
+//		  this is incorrect, answer is simply the sum of all the terms
 		answer = answer / 10;
 		System.out.println(answer);
 	}
