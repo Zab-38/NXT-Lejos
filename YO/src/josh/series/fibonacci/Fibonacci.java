@@ -3,10 +3,7 @@ package josh.series.fibonacci;
 
 public class Fibonacci {
 	private int firstnumber = 0;
-	
-	
-
-	private  int secondnumber = 1;
+	private int secondnumber = 1;
 	private int counter = 0;
 
 	
