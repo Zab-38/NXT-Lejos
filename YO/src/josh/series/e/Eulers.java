@@ -1,4 +1,4 @@
-package seph;
+package josh.series.e;
 
 public class Eulers {
 	double denominator = 1;
