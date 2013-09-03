@@ -1,6 +1,6 @@
-package seph;
+package josh.series.pi;
 
-public class Pi {
+public class PiFromLeibnitz {
 
 	double denominator = 1;
 	double sign = 1;
@@ -25,7 +25,7 @@ public class Pi {
 
 	public static void main(String[] args) {
 
-		Pi pi = new Pi();
+		PiFromLeibnitz pi = new PiFromLeibnitz();
 
 		for (int i = 0; i < 1000000; i++) {
 
