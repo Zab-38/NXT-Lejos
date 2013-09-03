@@ -9,5 +9,19 @@ package josh.series.fibonacci;
  */
 public class GoldenRatio {
 	
-	Fibonacci fibonacci;
+	Fibonacci fibonacci = new Fibonacci();
+	
+	
+	public double calculateGoldenRatio(int termId)
+	{
+		double result = 0;
+		
+//do calculation here
+		
+		return result;
+	}
+	
+	public static void main(String[] args) {
+		
+	}
 }

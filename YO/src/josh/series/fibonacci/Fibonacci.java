@@ -2,16 +2,32 @@ package josh.series.fibonacci;
 
 
 public class Fibonacci {
-	int firstnumber = 0;
-	int secondnumber = 1;
-	int numinplace = 0;
+	private int firstnumber = 0;
+	
+	
 
-	private void sysout() {
-		numinplace = numinplace + 1;
-		System.out.println(numinplace + "=" + firstnumber);
+	private  int secondnumber = 1;
+	private int counter = 0;
+
+	
+	
+	public int getFirstnumber() {
+		return firstnumber;
 	}
 
-	private void add() {
+	public int getSecondnumber() {
+		return secondnumber;
+	}
+	
+	public void sysout() {
+		counter = counter + 1;
+		System.out.println(counter + "=" + firstnumber);
+	}
+
+	/**
+	 * 
+	 */
+	public void calculateNextTerm() {
 		int sum = firstnumber + secondnumber;
 		firstnumber = secondnumber;
 		secondnumber = sum;
@@ -19,7 +35,7 @@ public class Fibonacci {
 
 	public static void main(String[] args) {
 		Fibonacci fib = new Fibonacci();
-		while (fib.numinplace < 100) {
+		while (fib.counter < 100) {
 			fib.sysout();
-			fib.add();
+			fib.calculateNextTerm();
 }}}
