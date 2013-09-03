@@ -8,4 +8,6 @@ package josh.series.fibonacci;
  * 
  */
 public class GoldenRatio {
+	
+	Fibonacci fibonacci;
 }

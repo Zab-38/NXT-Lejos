@@ -1,6 +1,5 @@
 package josh.series.fibonacci;
 
-import seph.Sop;
 
 public class Fibonacci {
 	int firstnumber = 0;
@@ -8,7 +7,6 @@ public class Fibonacci {
 	int numinplace = 0;
 
 	private void sysout() {
-
 		numinplace = numinplace + 1;
 		System.out.println(numinplace + "=" + firstnumber);
 	}
