@@ -16,6 +16,31 @@ public class Newslope extends JFrame {
 	    g.drawLine(getWidth(), getHeight() / 2, 0, getHeight() / 2);
 
 	  }
+	
+	private void drawHorizontalGridLines(Graphics g)
+	{
+		int xLeft = 0;
+		int xRight = getWidth();
+		
+		//will make grid lines 1/10 of height
+		g.setColor(Color.yellow);
+		
+		int lineCount  = 20;
+		for(int count = 0; count < lineCount; count++)
+		{
+			int y = getHeight()/lineCount * count;
+			
+			
+			if( Math.abs(y-getHeight()/2 )> 2)
+			{
+				
+				g.drawLine(xLeft, y, xRight, y);
+			}
+
+		}	
+			
+		
+	}
 	public void newlines(Graphics g) {
 		count = count + 1;
 		xmove = xmove + 100;
@@ -30,12 +55,10 @@ public class Newslope extends JFrame {
 	public void paint(Graphics g) {
 
 	  rectangle(g);
+	  drawHorizontalGridLines(g);
 	}
 	public static void main(String[] args) {
 		Newslope frame = new Newslope();
-		while (frame.count < 10) {
-			frame.newlines(g);
-		}
 		frame.setSize(500, 500);
 		frame.setBackground(Color.WHITE);
 		frame.setVisible(true);
