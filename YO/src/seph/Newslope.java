@@ -23,7 +23,7 @@ public class Newslope extends JFrame {
 		int xRight = getWidth();
 		
 		//will make grid lines 1/10 of height
-		g.setColor(Color.yellow);
+		g.setColor(Color.BLACK);
 		
 		int lineCount  = 20;
 		for(int count = 0; count < lineCount; count++)
@@ -35,27 +35,36 @@ public class Newslope extends JFrame {
 			{
 				
 				g.drawLine(xLeft, y, xRight, y);
-			}
-
-		}	
+			}}}
+		
+      private void drawVerticalGridLines(Graphics g)
+      {
+    	  int yLeft = 0;
+    	  int yRight = getHeight();
+    	  
+    	  g.setColor(Color.BLACK);
+    	  int lineCount = 20;
+    	  for(int count = 0; count < lineCount; count ++)
+    	  {
+    		  int x = getWidth()/lineCount * count;
+    		  
+    		  
+    		  if( Math.abs(x-getWidth()/2)> 2)
+    		  {
+    			  g.drawLine(yLeft, x, yRight, x);
+    		  }
+    	  }
+      }
+			
 			
 		
-	}
-	public void newlines(Graphics g) {
-		count = count + 1;
-		xmove = xmove + 100;
-		xmove2 = xmove + 100;
-		ymove = ymove + 100;
-		ymove2 = ymove2 + 100;
-		g.setColor(Color.BLACK);
-	    g.drawLine(getWidth() / 2, xmove , getWidth() / 2, xmove2);
-	    g.drawLine(ymove, getHeight() / 2, ymove2, getHeight() / 2);
-	}
+	
 	@Override
 	public void paint(Graphics g) {
 
 	  rectangle(g);
 	  drawHorizontalGridLines(g);
+	  drawVerticalGridLines(g);
 	}
 	public static void main(String[] args) {
 		Newslope frame = new Newslope();
