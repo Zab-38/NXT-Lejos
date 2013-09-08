@@ -8,9 +8,10 @@ import javax.swing.JFrame;
 
 
 public class Newslope extends JFrame {
-	public void rectangle (Graphics f) {
-		f.setColor(Color.BLACK);
-	    f.drawLine(getWidth() / 2, getHeight() , getWidth() / 2, getHeight() - getHeight());
+	public void rectangle (Graphics g) {
+		g.setColor(Color.BLACK);
+	    g.drawLine(getWidth() / 2, getHeight() , getWidth() / 2,0);
+	    
 
 	  }
 	@Override
@@ -19,9 +20,9 @@ public class Newslope extends JFrame {
 	  rectangle(g);
 	}
 	public static void main(String[] args) {
-		JFrame frame = new JFrame();
+		Newslope frame = new Newslope();
 		
-		frame.setSize(50, 50);
+		frame.setSize(500, 500);
 		frame.setBackground(Color.WHITE);
 		frame.setVisible(true);
 	}
