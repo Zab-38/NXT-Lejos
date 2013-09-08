@@ -12,8 +12,8 @@ public class Slope {
   
   public static void main(String[] args) {
 	Slope s = new Slope();
-	Point p1 = new Point(0, 0);
-	Point p2 = new Point(1,1);
+	Point p1 = new Point(1, 4);
+	Point p2 = new Point(7,-1);
 	
 	System.out.println(s.calculate(p1, p2));
 	
