@@ -20,19 +20,34 @@ public class XYgrid extends JFrame {
 	int ymove2 = 0;
 	int count = 0;
 	
-	public void drawFunction(Graphics g, IFunction f)
-	{
-		for(double x = -10; x< 10; x++)
-		{
-			double y = -f.function(x);
-			
-			int pixelX = (int) (x*25)+getWidth()/2 - 2;
-			int pixelY = (int) (y*25) + getHeight()/2 - 2;
-			 g.setColor(Color.black);
-			g.drawOval((int)pixelX, (int)pixelY, 5, 5);
-			
-		}
+	public void drawFunction(Graphics g, IFunction f){
+	
+		int changewidth = getWidth();
+		int changeheight = getHeight();
+	
+	  g.setColor(Color.black);
+	  g.drawOval((int)250, (int)250, 25 - 500 + changewidth, 25 - 500 + changeheight);
+	  
 	}
+	  
+	  
+	  
+	  
+	//  int pixelX = (int) (x*25)+getWidth()/2 - 2;
+				//int pixelY = (int) (y*25) + getHeight()/2 - 2;
+				// g.setColor(Color.black);
+				//g.drawOval((int)pixelX, (int)pixelY, 5, 5);
+	  
+	  //g.setColor(Color.blue);
+	  //int lineCount = 40;
+	  //for(int count = 0; count < lineCount; count ++)
+	  //{
+		//  int x = getWidth()/lineCount * count;
+		  
+		  //if( Math.abs(x-getWidth()/2)> 2)
+		  //{
+			//  g.drawLine(x, 0,  x, getHeight());
+		//  }
 	public void drawXYAxes (Graphics g) {
 		g.setColor(Color.GREEN);
 	    g.drawLine(getWidth() / 2, getHeight() , getWidth() / 2,0);
@@ -102,5 +117,7 @@ public class XYgrid extends JFrame {
 		frame.setSize(500, 500);
 		frame.setBackground(Color.WHITE);
 		frame.setVisible(true);
+		
+		
 	}
 }
