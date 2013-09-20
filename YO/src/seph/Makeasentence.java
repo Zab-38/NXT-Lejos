@@ -10,7 +10,7 @@ public class Makeasentence {
  public static void main(String[] args) {
 	 String Identify = "You:I:He:She:Phil";
 	 String Verb = "Ate:Killed:Urinated:Painted:Licked";
-	 String Noun = "Bird:My Bladder:Mr. T's sweatshop:Antelope:Male Earlobes";
+	 String Noun = "Bird:Bladder:Korean Sweatshop:Turtle Nipple:Male Earlobe";
 		String[] IdentifyAsArray = Identify.split(":");
 		String[] VerbAsArray = Verb.split(":");
 		String[] NounAsArray = Noun.split(":");
@@ -19,10 +19,10 @@ public class Makeasentence {
 		int Verbindex = new Random().nextInt(VerbAsArray.length);
 		int Nounindex = new Random().nextInt(NounAsArray.length);
 
-		String randomIdentification = Identifyindex[index];
-		String randomVerb = Verbindex[index];
-		String randomNoun = Nounindex[index];
-		System.out.println(randomIdentification + randomVerb + "a" + randomNoun);
+		String randomIdentification = IdentifyAsArray[Identifyindex];
+		String randomVerb = VerbAsArray[Verbindex];
+		String randomNoun = NounAsArray[Nounindex];
+		System.out.println(randomIdentification + " " + randomVerb + " " + "a" + " " + randomNoun + ".");
 }}
     
 /**String[] Identify = {"You:I:He:She:Phil"};
