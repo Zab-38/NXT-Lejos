@@ -8,14 +8,21 @@ public class Makeasentence {
 	
 	
  public static void main(String[] args) {
-	 String words = "Hi:Bye:Hello:Cheese:Puppies";
-		String[] wordsAsArray = words.split(":");
+	 String Identify = "You:I:He:She:Phil";
+	 String Verb = "Ate:Killed:Urinated:Painted:Licked";
+	 String Noun = "Bird:My Bladder:Mr. T's sweatshop:Antelope:Male Earlobes";
+		String[] IdentifyAsArray = Identify.split(":");
+		String[] VerbAsArray = Verb.split(":");
+		String[] NounAsArray = Noun.split(":");
 
-		int index = new Random().nextInt(wordsAsArray.length);
+		int Identifyindex = new Random().nextInt(IdentifyAsArray.length);
+		int Verbindex = new Random().nextInt(VerbAsArray.length);
+		int Nounindex = new Random().nextInt(NounAsArray.length);
 
-		String randomWord = wordsAsArray[index];
-		System.out.println("Random word: '" + randomWord + "'. It is of length: " + randomWord.length());
-
+		String randomIdentification = Identifyindex[index];
+		String randomVerb = Verbindex[index];
+		String randomNoun = Nounindex[index];
+		System.out.println(randomIdentification + randomVerb + "a" + randomNoun);
 }}
     
 /**String[] Identify = {"You:I:He:She:Phil"};
