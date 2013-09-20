@@ -14,7 +14,7 @@ public class Makeasentence {
 		int index = new Random().nextInt(wordsAsArray.length);
 
 		String randomWord = wordsAsArray[index];
-		System.out.println=("Random word: '" + randomWord + "'. It is of length: " + randomWord.length());
+		System.out.println("Random word: '" + randomWord + "'. It is of length: " + randomWord.length());
 
 }}
     
