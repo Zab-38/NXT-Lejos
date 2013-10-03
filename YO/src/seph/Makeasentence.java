@@ -7,7 +7,7 @@ public class Makeasentence {
 	String consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
 	String pronouns = "a:an";
 	String identify = "You:I:He:She:Phil:Mr. Uvula";
-	String Verb = "Ate:Killed:Urinated:Painted:Licked:Salivated";
+	String Verb = "ate:killed:urinated:painted:licked:salivated";
 	String noun = "Bird:Bladder:Korean Sweatshop:Turtle Nipple:Male Earlobe:Piece of Troll Feces:Antelope:Excavation Rig:Islamic Mosquito";
 
 	String[] identifyAsArray = identify.split(":");
@@ -15,60 +15,75 @@ public class Makeasentence {
 	String[] nounAsArray = noun.split(":");
 	String[] pronounAsArray = pronouns.split(":");
 
-	private boolean isConsonant(char ch)
-	{
+	private boolean isConsonant(char ch) {
 		String firstChar = "";
 		firstChar += ch;
 
-		if(consonants.contains(firstChar))return true;
-		
-		else return false;
-			
+		if (consonants.contains(firstChar))
+			return true;
+
+		else
+			return false;
+
 	}
 
-	public void makeSentence() {
+	public String makeSentence() {
 		int Identifyindex = new Random().nextInt(identifyAsArray.length);
 		int Verbindex = new Random().nextInt(verbAsArray.length);
 		int Nounindex = new Random().nextInt(nounAsArray.length);
-		
+
 		String randomIdentification = identifyAsArray[Identifyindex];
 		String randomVerb = verbAsArray[Verbindex];
 		String randomNoun = nounAsArray[Nounindex];
 		String pronoun = "";
 
 		char firstLetter = randomNoun.charAt(0);
-		
-		if(isConsonant(firstLetter))
-		{
-			//do something if first letter is a consonant
+
+		if (isConsonant(firstLetter)) {
+			// do something if first letter is a consonant
 			pronoun = pronounAsArray[0];
-		}
-		else
-		{
-			//it is not a consonant
-			
+		} else {
+			// it is not a consonant
+
 			pronoun = pronounAsArray[1];
 		}
 
+		String result = randomIdentification + " " + randomVerb + " "
+				+ pronoun + " " + randomNoun + ".";
+		return result;
 
-
-		
-		System.out.println(randomIdentification + " " + randomVerb + " " + pronoun
-				+ " " + randomNoun + ".");
-   
 	}
-
 
 	public static void main(String[] args) {
 
-
 		Makeasentence ms = new Makeasentence();
 		
-		for(int i = 0; i < 10; i++)
-		{
-			ms.makeSentence();
-		}
+		String line  = "";
+		ms.makeSentence();
 		
+		
+// where it says line = line - ms.make blah blah blah, i can;t subtract
+		while (line.length() < 1000) {
+			line = line + ms.makeSentence();
+			System.out.print(line);	
+			if(line.length() > 50)
+		    {
+		    	System.out.println(line);
+		    	line = line - ms.makeSentence();
+		    }
+			
+			else {
+				
+			}
+		}
+		//loop 
+		//figure out how long the line is
+		//print() if within line length
+		//otherwise println() to start a new line
+	    	
+		
+		
+
 	}
 }
 
