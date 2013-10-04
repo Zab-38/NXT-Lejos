@@ -60,7 +60,7 @@ public class Makeasentence {
 
 		Makeasentence ms = new Makeasentence();
 		
-		String line  = ms.makeSentence();
+		String line  = "";
 		String space = line;
 		ms.makeSentence();
 		
@@ -73,7 +73,7 @@ public class Makeasentence {
 			if(space.length() > 50)
 		    {
 		    	System.out.println(line);
-		    	line = "";
+		    	space = "";
 		    }
 			
 			else {
