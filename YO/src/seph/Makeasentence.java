@@ -55,21 +55,25 @@ public class Makeasentence {
 	}
 
 	public static void main(String[] args) {
+		
+		
 
 		Makeasentence ms = new Makeasentence();
 		
-		String line  = "";
+		String line  = ms.makeSentence();
+		String space = line;
 		ms.makeSentence();
 		
 		
 // where it says line = line - ms.make blah blah blah, i can;t subtract
 		while (line.length() < 1000) {
+			
 			line = line + ms.makeSentence();
 			System.out.print(line);	
-			if(line.length() > 50)
+			if(space.length() > 50)
 		    {
 		    	System.out.println(line);
-		    	line = line - ms.makeSentence();
+		    	line = "";
 		    }
 			
 			else {
