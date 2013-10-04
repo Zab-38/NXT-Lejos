@@ -49,7 +49,7 @@ public class Makeasentence {
 		}
 
 		String result = randomIdentification + " " + randomVerb + " "
-				+ pronoun + " " + randomNoun + ".";
+				+ pronoun + " " + randomNoun + ".  ";
 		return result;
 
 	}
@@ -67,7 +67,8 @@ public class Makeasentence {
 		
 // where it says line = line - ms.make blah blah blah, i can;t subtract
 		int lineCount = 0;
-		while (lineCount < 10) {
+		
+		while (lineCount < 20) {
 			
 			line = line + ms.makeSentence();
 			if(line.length() > 85)
@@ -75,6 +76,10 @@ public class Makeasentence {
 				System.out.println(line);
 				line = "";
 				lineCount++;
+			}
+			if(lineCount > 10 && lineCount < 12) {
+				System.out.println("");
+				
 			}
 		}
 		
