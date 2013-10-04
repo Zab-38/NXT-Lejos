@@ -70,7 +70,7 @@ public class Makeasentence {
 			
 			line = line + ms.makeSentence();
 			System.out.print(line);	
-			if(space.length() > 50)
+			if(space.length() < 50)
 		    {
 		    	System.out.println(line);
 		    	space = "";
