@@ -66,25 +66,17 @@ public class Makeasentence {
 		
 		
 // where it says line = line - ms.make blah blah blah, i can;t subtract
-		while (line.length() < 1000) {
+		int lineCount = 0;
+		while (lineCount < 10) {
 			
 			line = line + ms.makeSentence();
-			System.out.print(line);	
-			if(space.length() < 50)
-		    {
-		    	System.out.println(line);
-		    	space = "";
-		    }
-			
-			else {
-				
+			if(line.length() > 85)
+			{
+				System.out.println(line);
+				line = "";
+				lineCount++;
 			}
 		}
-		//loop 
-		//figure out how long the line is
-		//print() if within line length
-		//otherwise println() to start a new line
-	    	
 		
 		
 
