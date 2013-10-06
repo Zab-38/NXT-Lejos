@@ -21,7 +21,6 @@ public class Makeasentence {
 
 		if (consonants.contains(firstChar))
 			return true;
-
 		else
 			return false;
 

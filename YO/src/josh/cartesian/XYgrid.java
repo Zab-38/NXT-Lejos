@@ -2,12 +2,15 @@ package josh.cartesian;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.Date;
-
 import javax.swing.JFrame;
 
 /**
- * 
+ * Things to do daily
+ * 1) run the program
+ * 2) read the code
+ * 3) consider improving naming of both variables and functions
+ * 4) make modifications
+ * 5) consider adding new functions
  * @author FPNMB
  *
  */
@@ -19,105 +22,147 @@ public class XYgrid extends JFrame {
 	int ymove = getWidth();
 	int ymove2 = 0;
 	int count = 0;
-	
-	public void drawFunction(Graphics g, IFunction f){
-	
-		int changewidth = getWidth();
-		int changeheight = getHeight();
-	
-	  g.setColor(Color.black);
-	  g.drawOval((int)250, (int)250, 25 - 500 + changewidth, 25 - 500 + changeheight);
-	  
-	}
-	  
-	  
-	  
-	  
-	//  int pixelX = (int) (x*25)+getWidth()/2 - 2;
-				//int pixelY = (int) (y*25) + getHeight()/2 - 2;
-				// g.setColor(Color.black);
-				//g.drawOval((int)pixelX, (int)pixelY, 5, 5);
-	  
-	  //g.setColor(Color.blue);
-	  //int lineCount = 40;
-	  //for(int count = 0; count < lineCount; count ++)
-	  //{
-		//  int x = getWidth()/lineCount * count;
-		  
-		  //if( Math.abs(x-getWidth()/2)> 2)
-		  //{
-			//  g.drawLine(x, 0,  x, getHeight());
-		//  }
-	public void drawXYAxes (Graphics g) {
-		g.setColor(Color.GREEN);
-	    g.drawLine(getWidth() / 2, getHeight() , getWidth() / 2,0);
-	    g.drawLine(getWidth(), getHeight() / 2, 0, getHeight() / 2);
-
-	  }
-	
+	int numberOfGridLines = 20;
+	int relativevalues = 50;
+	int converttonegative = relativevalues - relativevalues;
+    int negativevalues = converttonegative - relativevalues;
+    int multiplyvalues = relativevalues * 2;
+    
 	private void drawHorizontalGridLines(Graphics g)
 	{
-		int xLeft = 0;
-		int xRight = getWidth();
 		
-		//will make grid lines 1/10 of height
 		g.setColor(Color.red);
-		
-		int lineCount  = 20;
-		for(int count = 0; count < lineCount; count++)
+		for(int y= negativevalues; y <= relativevalues; y++)
 		{
-			int y = getHeight()/lineCount * count;
 			
-			
-			if( Math.abs(y-getHeight()/2 )> 2)
-			{
-				
-				g.drawLine(xLeft, y, xRight, y);
-			}}}
+			drawLine(g, negativevalues, y, relativevalues, y);
+        }
+	}
+	
 		
       private void drawVerticalGridLines(Graphics g)
       {
-    	  int yTop = 0;
-    	  int yRight = getHeight();
-    	  
-    	  g.setColor(Color.blue);
-    	  int lineCount = 20;
-    	  for(int count = 0; count < lineCount; count ++)
-    	  {
-    		  int x = getWidth()/lineCount * count;
-    		  
-    		  if( Math.abs(x-getWidth()/2)> 2)
-    		  {
-    			  g.drawLine(x, 0,  x, getHeight());
-    		  }
+  		g.setColor(Color.red);
+  		for(int x= negativevalues; x <= relativevalues; x++)
+  		{
+  			drawLine(g, x, negativevalues, x, relativevalues);
+          }
+      }
+    
+	private void drawOval(Graphics g, double x, double y) {
+        
+		int width = getWidth() / multiplyvalues;
+		int height = getHeight() / multiplyvalues;
+		int convertx = width / 2;
+		int converty = height /2;
+		g.setColor(Color.DARK_GRAY);
+		Point pixelPoint = convertXYtoPixels(x, y);
+		g.drawOval((int) pixelPoint.x - convertx, (int) pixelPoint.y - converty, width, height);
+		g.fillOval((int) pixelPoint.x - convertx, (int) pixelPoint.y - converty, width, height);
+	}
 
-    		  //old code
-//    		  if( Math.abs(x-getWidth()/2)> 2)
-//    		  {
-//    			  g.drawLine(yLeft, x, yRight, x);
-//    		  }
+
+	private Point convertXYtoPixels(double x, double y)
+      {
+    	  Point result = new Point(0, 0); 
+    			  
+    	  int screenHeight = getHeight();
+    	  int screenWidth = getWidth();
+    	  
+    	  int correctionx = screenWidth/2;
+    	  int correctiony = screenHeight/2;
+    	  
+    	  double unitConversionFactorX = screenWidth/multiplyvalues; 
+    	  double unitConversionFactorY = screenHeight/multiplyvalues;
+    	  
+
+    	  double newX = x*unitConversionFactorX + correctionx;
+    	  double newY = - y*unitConversionFactorY + correctiony;
+    	  
+    	  result.x = newX;
+    	  result.y = newY;
+    	  return result;
+      }
+      
+      private int getSpacingHeight()
+      {
+    	  int screenHeight = getHeight();
+    	  int spacingHeight = screenHeight / 20;
+    	  return spacingHeight;
+      }
+      
+      private int getSpacingWidth()
+      {
+    	  
+		  int screenWidth = getWidth();
+    	  int spacingWidth = screenWidth / 20;
+    	  return spacingWidth;
+    	 
+    	  
+      }
+      
+    
+      private void drawFunction (Graphics g, IFunction f)
+      {
+    	  for(int x = negativevalues ; x<=relativevalues;x++)
+    	  {
+    		  drawOval(g, x,  0.1*f.function(x));
     	  }
       }
-			
+      
+      private void drawMainLines (Graphics g) {
+    	  int height = getHeight();
+    	  int width = getWidth();
+    	  int halfheight = height / 2;
+    	  int halfwidth = width / 2;
+    	  g.setColor(Color.green);
+    	  g.drawLine(halfwidth, 0,  halfwidth, getHeight());
+    	  g.drawLine(0, halfheight, getWidth(), halfheight);
+    	  
+    	  
+      } 
+      
+      
+    //  private Point convertPixelsToXY(int pixelX, int pixedlY)
+     // {
+    	//  Point result = new Point(0,0);
+    	//  int frameWidth = getWidth();
+    	//  int frameHeight = getHeight();
+    	  
+    	  
+    //  }
+
+      
+     private void drawLine(Graphics g, int x1, int y1, int x2, int y2)
+     {
+    	 Point point1 = convertXYtoPixels(x1,y1);
+    	 Point point2 = convertXYtoPixels(x2, y2);
+    	 g.drawLine((int)point1.x, (int)point1.y, (int)point2.x, (int)point2.y);
+    	 
+    	 
+     }
 			
 		
-	
+      
 	@Override
 	public void paint(Graphics g) {
 
-	  drawXYAxes(g);
+	 
 	  drawHorizontalGridLines(g);
 	  drawVerticalGridLines(g);
-	  drawFunction(g, new LineFunction());
-	  drawFunction(g, new ParabalaFunction());
+      //drawOval(g, 3,3);	
+      drawMainLines(g);
+      drawFunction(g, new CubicFunction());
+	 
 	  
 	}
 	public static void main(String[] args) {
+		
 		XYgrid frame = new XYgrid();
 		frame.setSize(500, 500);
 		frame.setBackground(Color.WHITE);
 		frame.setVisible(true);
 		
-		
+	
 	}
 }

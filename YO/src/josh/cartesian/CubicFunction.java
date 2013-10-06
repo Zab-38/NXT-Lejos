@@ -1,11 +1,11 @@
 package josh.cartesian;
 
-public class ParabalaFunction implements IFunction
+public class CubicFunction implements IFunction
 {
 
 	@Override
 	public double function(double x) {
-		return x*x;
+		return x*x*x;
 	}
 
 }
