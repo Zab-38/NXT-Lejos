@@ -16,7 +16,7 @@ public class PrimedeterminatorV1 {
 	public static void main(String[] args) {
 		PrimedeterminatorV1 prime = new PrimedeterminatorV1();
 
-		for (int i = 490000000; i < 500000000; i++) {
+		for (int i = 1; i < 1000; i++) {
 			if (prime.isPrimeNumber(i)) {
 				System.out.println(i + ", ");
 			}

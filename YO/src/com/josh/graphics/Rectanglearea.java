@@ -8,8 +8,8 @@ import javax.swing.JFrame;
 
 
 public class Rectanglearea extends JFrame{
-public int length = 20;
-public int width = 30;
+public int length = 200;
+public int width = 300;
 
 public void area() {
 	System.out.println(length * width);
@@ -22,7 +22,7 @@ public void paint(Graphics g) {
 }
 
 public void rectangle (Graphics f) {
-	f.setColor(Color.CYAN);
+	f.setColor(Color.BLACK);
     f.drawRect (0, 0, width, length);   
 //    f.fillRect (0, 0, width, length);
   }
@@ -33,7 +33,7 @@ public static void main(String[] args) {
 	Rectanglearea rect = new Rectanglearea();
 	
 	rect.area();
-	rect.setSize(50, 50);
+	rect.setSize(500, 500);
 	rect.setBackground(Color.WHITE);
 	rect.setVisible(true);
 }
