@@ -3,18 +3,18 @@ package com.josh.Unfinished_Projects;
 import java.awt.Color;
 import java.awt.Event;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.applet.Applet;
 
 import javax.swing.JFrame;
 
-import com.sun.prism.Image;
 
 public class Idunnoyet extends JFrame
 implements KeyListener{
-	private Image dbImage;
-	private Graphics dbg;
+	//private Image dbImage;
+	//private Graphics dbg;
 	int x = 50;
 	int y = 50;
 
@@ -25,13 +25,19 @@ implements KeyListener{
 	}
 	public void rectangle (Graphics f) {
 		f.setColor(Color.BLACK);
-	    f.drawRect (x, y, 200, 200);   
+	    f.drawRect (x, y, 150, 150);   
 
 	  }
-	public void paintComponent (Graphics g) {
-		
-	}
+	//public void paintComponent (Graphics g) {
+	//	dbImage = createImage(getWidth(),getHeight());
+	//}
 	
+	
+	public Image createImage(int width, int height)
+	{
+		//fill this out
+		return null;
+	}
 	@Override
 	public void paint (Graphics g) {
 
@@ -86,7 +92,7 @@ public boolean keyDown(Event evt, int key) {
 		y = y - 15;
 	}
 	
-	repaint();
+	
 	return super.keyDown(evt, key);
 }
 
