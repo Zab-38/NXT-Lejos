@@ -1,4 +1,4 @@
-package joshgui;
+package org.josh.gui.polygons;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;

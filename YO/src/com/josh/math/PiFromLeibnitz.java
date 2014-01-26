@@ -27,7 +27,7 @@ public class PiFromLeibnitz {
 
 		PiFromLeibnitz pi = new PiFromLeibnitz();
 
-		for (int i = 0; i < 1000000; i++) {
+		for (int i = 0; i < 100; i++) {
 
 			System.out.println(pi.nextTerm());
 			

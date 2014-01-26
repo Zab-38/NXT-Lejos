@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: jJoshGui
 Bundle-SymbolicName: joshGui
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: joshgui.Activator
+Bundle-Activator: org.josh.gui.polygons.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

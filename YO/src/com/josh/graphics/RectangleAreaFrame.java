@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 
 
 
-public class Rectanglearea extends JFrame{
+public class RectangleAreaFrame extends JFrame{
 public int length = 200;
 public int width = 300;
 
@@ -30,7 +30,7 @@ public void rectangle (Graphics f) {
 
 public static void main(String[] args) {
 	
-	Rectanglearea rect = new Rectanglearea();
+	RectangleAreaFrame rect = new RectangleAreaFrame();
 	
 	rect.area();
 	rect.setSize(500, 500);

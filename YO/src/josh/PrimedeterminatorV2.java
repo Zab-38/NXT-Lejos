@@ -1,4 +1,4 @@
-package com.josh.Unfinished_Projects;
+package josh;
 
 public class PrimedeterminatorV2
 

@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 
-public class Rectangle extends Rectanglearea {
+public class Rectangle extends RectangleAreaFrame {
 	public void rectangle (Graphics f) {
 	    f.drawRect (0, 0, width, length);   
 	    f.fillRect (0, 0, width, length);

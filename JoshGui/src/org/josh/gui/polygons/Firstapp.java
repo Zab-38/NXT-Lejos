@@ -1,4 +1,4 @@
-package joshgui;
+package org.josh.gui.polygons;
 
 import java.awt.EventQueue;
 
