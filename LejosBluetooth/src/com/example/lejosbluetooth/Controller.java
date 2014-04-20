@@ -153,6 +153,8 @@ public class Controller{
 		
 	}
 	
+	publi
+	
 	public void stopSweep()
 	{
 		isSweeping = false;

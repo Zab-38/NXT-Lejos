@@ -28,10 +28,10 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		buttonStart = (Button) findViewById(R.id.buttonStart);
+	buttonStart = (Button) findViewById(R.id.buttonStart);
 		buttonTerminate = (Button) findViewById(R.id.buttonTerminateLejos);
 		drawView = (CustomView)findViewById(R.id.customView);
-		textView = (TextView) findViewById(R.id.textView);
+		 textView = (TextView) findViewById(R.id.textView);
 		
 		//initializes sound infrastructure
 		SoundPlayer.singleton().init(getApplicationContext());
