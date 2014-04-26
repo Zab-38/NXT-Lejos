@@ -1,4 +1,4 @@
-package com.example.lejosbluetooth;
+package com.example.lejosbluetooth; 
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
 	private CustomView drawView=null;
 	
 	
-	
+	 
 	TextView textView = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +57,7 @@ public class MainActivity extends Activity {
 			}
 		});
 		
-		
+	
 		
 		buttonTerminate.setOnClickListener(new OnClickListener() {
 			

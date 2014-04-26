@@ -103,4 +103,12 @@
         android:layout_toRightOf="@+id/Backward"
         android:text="Move Speed" />
 
+    <com.example.lejosbluetooth.CustomView
+        android:id="@+id/customView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Left"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="38dp" />
+
 </RelativeLayout>
