@@ -34,7 +34,7 @@ public class BluetoothAsyncTask extends AsyncTask<TextView, Void, Void> {
 
 	private boolean connected=false;
 	private static final UUID SERIAL_PORT_SERVICE_CLASS_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-	
+	                                                                            
     // this is the only OUI registered by LEGO, see http://standards.ieee.org/regauth/oui/index.shtml
     public static final String OUI_LEGO = "00:16:53";
 
@@ -58,6 +58,8 @@ public class BluetoothAsyncTask extends AsyncTask<TextView, Void, Void> {
 		Log.e(MainActivity.TAG , "bluetooth connected using RAW Protocol");
 
 		textView.setText("Connected!!!!");
+		SoundPlayer.singleton().playSound(SoundPlayer.Sound.S1);
+
 	}
 
 	@Override
@@ -85,6 +87,9 @@ public class BluetoothAsyncTask extends AsyncTask<TextView, Void, Void> {
 	    	  
 	         BluetoothSocket nxtBTsocketTemporary;
 	         BluetoothDevice nxtDevice  = btAdapter.getRemoteDevice(mMacAddress);
+
+//	         BluetoothDevice nxtDevice  = btAdapter.getRemoteDevice("34:DF:2A:15:72:BD");
+//	         BluetoothDevice nxtDevice  = btAdapter.getRemoteDevice("00:16:53:10:C0:3E");
 	         
 	         
 	         nxtBTsocketTemporary = nxtDevice.createRfcommSocketToServiceRecord(SERIAL_PORT_SERVICE_CLASS_UUID);

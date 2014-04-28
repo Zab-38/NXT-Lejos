@@ -6,16 +6,17 @@ import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import android.graphics.Point;
-import android.os.Handler;
-import android.util.Log;
-import android.widget.TextView;
-
+import com.example.requests.HelloWorld;
 import com.example.requests.RequestCommand;
 import com.example.requests.RequestExitLejosServer;
 import com.example.requests.RequestSensorReading;
 import com.example.requests.RequestStartSweep;
 import com.example.requests.RequestStopSweep;
+
+import android.graphics.Point;
+import android.os.Handler;
+import android.util.Log;
+import android.widget.TextView;
 
 /**
  * 1. sends requests to the Lejos server
@@ -58,6 +59,9 @@ public class Controller{
 		}
 	};
 	
+	DataOutputStream out = BluetoothAsyncTask.singleton().getdOut();
+	DataInputStream in = BluetoothAsyncTask.singleton().getdIn();
+	
 	
 
 	private CustomView drawView = null;
@@ -65,6 +69,21 @@ public class Controller{
 
 	private boolean isSweeping;
 
+	public void Forward() {
+		
+		if(out==null)return;
+		if(in==null)return;
+		try {
+			out.writeChar(new HelloWorld().getCmd());
+			out.flush();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+	}
+	
+	
 	public CustomView getDrawView() {
 		return drawView;
 	}
@@ -101,8 +120,7 @@ public class Controller{
 	
 	public Point requestSensorReading()
 	{
-		DataOutputStream out = BluetoothAsyncTask.singleton().getdOut();
-		DataInputStream in = BluetoothAsyncTask.singleton().getdIn();
+		
 		if(out == null)return null;
 		
 		Point point = new Point();

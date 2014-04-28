@@ -54,10 +54,11 @@ public class LejosServer extends BaseLejos{
 		});
 		
 		LCD.drawString("waiting", 0, 0);
-		conn = USB.waitForConnection();
+		conn = Bluetooth.waitForConnection(0,NXTConnection.RAW);
 		
 		dOut = conn.openDataOutputStream();
 		dIn = conn.openDataInputStream();
+		LCD.drawString("connected", 2, 2);
 		while (true) 
 		{
             char b;
@@ -67,10 +68,13 @@ public class LejosServer extends BaseLejos{
             	if(dIn.available()== 0)continue;
             	
                 b = dIn.readChar();
-                value = dIn.readDouble();
-                if(b=='d')
+                
+                LCD.clearDisplay();
+                System.out.println(b);
+//                value = dIn.readDouble();
+                if(b=='0')
                 {
-                	sendDistance();
+                System.out.println("Derpa");
                 }else
                 if(b=='x')break;
                 else

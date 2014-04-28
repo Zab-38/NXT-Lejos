@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+        <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp" />/>
+ 
+        <Button
+            android:id="@+id/Speedplus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="Speedplus" />
+
+        <Button
+            android:id="@+id/Speedminus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/Durationminus"
+            android:layout_below="@+id/Durationminus"
+            android:layout_marginTop="28dp"
+            android:text="Speedminus" />
+
+        <Button
+            android:id="@+id/Durationminus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/Durationplus"
+            android:layout_marginLeft="14dp"
+            android:text="Durationminus" />
+
+        <Button
+            android:id="@+id/Durationplus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/Durationminus"
+            android:text="Durationplus" />
+
+</RelativeLayout>

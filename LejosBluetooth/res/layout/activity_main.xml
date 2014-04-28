@@ -93,22 +93,4 @@
         android:layout_below="@+id/Forward"
         android:text="TurnLeft" />
 
-    <Button
-        android:id="@+id/Speed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/Right"
-        android:layout_alignRight="@+id/linearLayout1"
-        android:layout_alignTop="@+id/Backward"
-        android:layout_toRightOf="@+id/Backward"
-        android:text="Move Speed" />
-
-    <com.example.lejosbluetooth.CustomView
-        android:id="@+id/customView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/Left"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="38dp" />
-
 </RelativeLayout>
