@@ -15,32 +15,31 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/Speedminus"
             android:text="Speedplus" />
 
         <Button
             android:id="@+id/Speedminus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/Durationminus"
-            android:layout_below="@+id/Durationminus"
-            android:layout_marginTop="28dp"
-            android:text="Speedminus" />
-
-        <Button
-            android:id="@+id/Durationminus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/Durationplus"
-            android:layout_marginLeft="14dp"
-            android:text="Durationminus" />
+            android:layout_below="@+id/Speedplus"
+            android:text="Speedminus" />
 
         <Button
             android:id="@+id/Durationplus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/Durationminus"
+            android:layout_toRightOf="@+id/Speedplus"
             android:text="Durationplus" />
+
+        <Button
+            android:id="@+id/Durationminus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/Durationplus"
+            android:layout_below="@+id/Durationplus"
+            android:text="Durationminus" />
 
 </RelativeLayout>

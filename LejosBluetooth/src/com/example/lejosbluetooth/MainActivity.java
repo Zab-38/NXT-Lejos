@@ -24,6 +24,7 @@ public class MainActivity extends Activity {
 	private Button buttonBackward = null;
 	private Button buttonLeft = null;
 	private Button buttonRight = null;
+	private Button buttonSpeedPlus = null;
 
 
 	private CustomView drawView = null;
@@ -43,6 +44,7 @@ public class MainActivity extends Activity {
 		buttonBackward = (Button) findViewById(R.id.Backward);
 		buttonLeft = (Button) findViewById(R.id.Left);
 		buttonRight = (Button) findViewById(R.id.Right);
+		buttonSpeedPlus = (Button) findViewById(R.id.Speedplus);
 	
 
 		// initializes sound infrastructure
@@ -69,26 +71,27 @@ public class MainActivity extends Activity {
 
 		buttonForward.setOnClickListener(new OnClickListener() {
 
-
-			@Override
-			public void onClick(View v) {
-				final Dialog dialog = new  Dialog(context);
-				dialog.setContentView(R.layout.direction);
-				dialog.setTitle("Forward Preferences");
-	 
-				// set the custom dialog components - text, image and button
 			
-	 
-				Button speedPlusButton = (Button) dialog.findViewById(R.id.Speedplus);
-				// if button is clicked, close the custom dialog
-				speedPlusButton.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						SoundPlayer.singleton().playSound(SoundPlayer.Sound.S1);
+				@Override
+				public void onClick(View v) {
+					final Dialog dialog = new  Dialog(context);
+					dialog.setContentView(R.layout.speedincrease);
+					dialog.setTitle("What is the speed?");
+		 
+					// set the custom dialog components - text, image and button
+				
+		 
+					Button speedPlusButton = (Button) dialog.findViewById(R.id.Speedplus);
+					// if button is clicked, close the custom dialog
+					speedPlusButton.setOnClickListener(new OnClickListener() {
+						@Override
+						public void onClick(View v) {
+						
+							
 
-						Controller.singleton().Forward();
-					}
-				});
+							
+						}
+					});
 	 
 				dialog.show();
 				
@@ -318,7 +321,32 @@ public class MainActivity extends Activity {
 
 		});
 		
-		
+//		buttonSpeedPlus.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				final Dialog dialog = new  Dialog(context);
+//				dialog.setContentView(R.layout.speedincrease);
+//				dialog.setTitle("What is the speed?");
+//	 
+//				// set the custom dialog components - text, image and button
+//			
+//	 
+//				Button speedPlusButton = (Button) dialog.findViewById(R.id.Speedplus);
+//				// if button is clicked, close the custom dialog
+//				speedPlusButton.setOnClickListener(new OnClickListener() {
+//					@Override
+//					public void onClick(View v) {
+//					
+//						
+//
+//						
+//					}
+//				});
+			
+//			}
+//		});
+//		
 		
 		buttonTerminate.setOnClickListener(new OnClickListener() {
 

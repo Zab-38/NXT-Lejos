@@ -27,7 +27,7 @@ public class BluetoothAsyncTask extends AsyncTask<TextView, Void, Void> {
 
 
 	private DataOutputStream dOut;
-	public DataOutputStream getdOut() {
+	public DataOutputStream getdOut() { 
 		return dOut;
 	}
 

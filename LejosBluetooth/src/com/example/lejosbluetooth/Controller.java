@@ -52,7 +52,7 @@ public class Controller{
 			{
 				textView.setText(Double.toString(lastAngle));
 				textView.invalidate();
-				drawView.drawLineToPoint(newPoint);
+//				drawView.drawLineToPoint(newPoint);
 				
 			}
 
