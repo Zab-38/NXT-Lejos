@@ -34,7 +34,7 @@ public class Connect {
 
 	public static void main(String[] args) {
 
-	    send send = new send();
+	    Send send = new send();
 	    send.buildGUI();//GUI Building 
 	    send.connect();//Start connection
 

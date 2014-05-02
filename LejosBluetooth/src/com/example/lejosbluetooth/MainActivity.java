@@ -81,52 +81,9 @@ public class MainActivity extends Activity {
 					// set the custom dialog components - text, image and button
 				
 		 
-					Button speedPlusButton = (Button) dialog.findViewById(R.id.Speedplus);
-					// if button is clicked, close the custom dialog
-					speedPlusButton.setOnClickListener(new OnClickListener() {
-						@Override
-						public void onClick(View v) {
-						
-							
-
-							
-						}
-					});
-	 
+			 
 				dialog.show();
 				
-				Button directionPlusButton = (Button) dialog.findViewById(R.id.Durationplus);
-				// if button is clicked, close the custom dialog
-				directionPlusButton.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						dialog.dismiss();
-					}
-				});
-	 
-				dialog.show();
-				
-				Button speedMinusButton = (Button) dialog.findViewById(R.id.Speedminus);
-				// if button is clicked, close the custom dialog
-				speedMinusButton.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						Controller.singleton().Forward();
-					}
-				});
-	 
-				dialog.show();
-				
-				Button directionMinusButton = (Button) dialog.findViewById(R.id.Durationminus);
-				// if button is clicked, close the custom dialog
-				directionMinusButton.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						dialog.dismiss();
-					}
-				});
-	 
-				dialog.show();
 			
 			
 			}
