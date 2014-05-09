@@ -1,3 +1,5 @@
+package pcBluetooth;
+
 /*Copyright (c) 2011 Aravind Rao
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation 
@@ -34,9 +36,9 @@ public class Connect {
 
 	public static void main(String[] args) {
 
-	    Send send = new send();
-	    send.buildGUI();//GUI Building 
-	    send.connect();//Start connection
+	    send sed = new send();
+	    sed.buildGUI();//GUI Building 
+	    sed.connect();//Start connection
 
 	}
 

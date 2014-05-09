@@ -37,7 +37,6 @@ public class Basictilt extends BaseLejos {
 
 	}
 
-	@Override
 	public void run() {
 
 		while (true) {
