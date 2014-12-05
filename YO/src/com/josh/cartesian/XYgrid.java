@@ -1,7 +1,10 @@
 package com.josh.cartesian;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+
 import javax.swing.JFrame;
 
 /**
@@ -23,29 +26,28 @@ public class XYgrid extends JFrame {
 	int ymove2 = 0;
 	int count = 0;
 	int numberOfGridLines = 20;
-	int relativevalues = 50;
-	int converttonegative = relativevalues - relativevalues;
-    int negativevalues = converttonegative - relativevalues;
+	int relativevalues = 20;
+    int negativevalues = - relativevalues;
     int multiplyvalues = relativevalues * 2;
     
 	private void drawHorizontalGridLines(Graphics g)
 	{
 		
-		g.setColor(Color.red);
+		g.setColor(Color.GRAY);
 		for(int y= negativevalues; y <= relativevalues; y++)
 		{
 			
-			drawLine(g, negativevalues, y, relativevalues, y);
+			drawLine(g, negativevalues, y * 2, relativevalues, y * 2);
         }
 	}
 	
 		
       private void drawVerticalGridLines(Graphics g)
       {
-  		g.setColor(Color.red);
+  		g.setColor(Color.GRAY);
   		for(int x= negativevalues; x <= relativevalues; x++)
   		{
-  			drawLine(g, x, negativevalues, x, relativevalues);
+  			drawLine(g, x * 2, negativevalues, x * 2, relativevalues);
           }
       }
     
@@ -106,18 +108,23 @@ public class XYgrid extends JFrame {
       {
     	  for(int x = negativevalues ; x<=relativevalues;x++)
     	  {
-    		  drawOval(g, x,  0.1*f.function(x));
+    		  drawOval(g, x,  2*f.function(x));
     	  }
       }
       
       private void drawMainLines (Graphics g) {
+
+    	  Graphics2D g2d = (Graphics2D)g;
     	  int height = getHeight();
     	  int width = getWidth();
     	  int halfheight = height / 2;
     	  int halfwidth = width / 2;
-    	  g.setColor(Color.green);
-    	  g.drawLine(halfwidth, 0,  halfwidth, getHeight());
-    	  g.drawLine(0, halfheight, getWidth(), halfheight);
+    	  
+
+    	  g2d.setStroke(new BasicStroke(2, BasicStroke.CAP_SQUARE, BasicStroke.CAP_SQUARE));
+    	  g2d.setColor(Color.black);
+    	  g2d.drawLine(halfwidth + 1, 0,  halfwidth + 1, getHeight());
+    	  g2d.drawLine(0, halfheight + 1, getWidth(), halfheight + 1);
     	  
     	  
       } 
@@ -152,7 +159,7 @@ public class XYgrid extends JFrame {
 	  drawVerticalGridLines(g);
       //drawOval(g, 3,3);	
       drawMainLines(g);
-      drawFunction(g, new CubicFunction());
+      drawFunction(g, new LineFunction());
 	 
 	  
 	}
