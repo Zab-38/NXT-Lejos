@@ -87,8 +87,8 @@ public class Display extends Canvas implements Runnable {
 		Display game = new Display();
 		JFrame frame = new JFrame();
 		frame.add(game);
-		frame.setSize(width, height);
-		frame.setResizable(false);
+		frame.setSize(1920, 1200);
+		frame.setResizable(true);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();

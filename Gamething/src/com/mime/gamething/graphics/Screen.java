@@ -17,6 +17,7 @@ public class Screen extends Render {
 	}
 
 	public void render() {
-		draw(test, 0, 0);
+//where the box is drawn
+		draw(test, (width - 700) / 2, (height - 700) / 2);
 	}
 }
