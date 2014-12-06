@@ -10,7 +10,12 @@ import javax.swing.JFrame;
 
 import com.mime.gamething.graphics.Render;
 import com.mime.gamething.graphics.Screen;
-
+/**
+ * 
+ * Responsible for drawing to the screen
+ * @author Joshua
+ *
+ */
 public class Display extends Canvas implements Runnable {
 
 	public static final int width = 1920;
@@ -19,15 +24,14 @@ public class Display extends Canvas implements Runnable {
 
 	private Thread thread;
 	private Screen screen;
-	private BufferedImage img;
+	private BufferedImage bufferedImg;
 	private boolean running = false;
-	private Render render;
 	private int[] pixels;
 	
 	public Display() {
 		screen = new Screen(width, height);
-		img = new BufferedImage(width,height, BufferedImage.TYPE_INT_RGB);
-		pixels = ((DataBufferInt)img.getRaster().getDataBuffer()).getData();
+		bufferedImg = new BufferedImage(width,height, BufferedImage.TYPE_INT_RGB);
+		pixels = ((DataBufferInt)bufferedImg.getRaster().getDataBuffer()).getData();
 	}
 
 	private void start() {
@@ -76,7 +80,7 @@ public class Display extends Canvas implements Runnable {
 			pixels[i] = screen.pixels[i];
 		}
 		Graphics g = bs.getDrawGraphics();
-		g.drawImage(img, 0, 0, width, height, null);
+		g.drawImage(bufferedImg, 0, 0, width, height, null);
 		g.dispose();
 		bs.show();
 	}
