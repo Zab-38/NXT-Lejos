@@ -10,14 +10,23 @@ public class Screen extends Render {
 		super(width, height);
 		Random random = new Random();
 		render = new Render(1920, 1200);
-		for (int j = 0; j < 1920*1200; j++) {
-			render.pixels[j] = random.nextInt(); 
+		for (int j = 0; j < 1920 * 1200; j++) {
+			render.pixels[j] = random.nextInt();
 		}
-		
+
 	}
 
 	public void render() {
-//where the box is drawn
-		draw(render, (width - 700) / 2, (height - 700) / 2);
+		// where the box is drawn
+		for (int i = 0; i < width * height; i++) {
+			pixels[i] = 0;
+		}
+		for (int i = 0; i < 80; i++) {
+			int anim = (int) (Math.sin((System.currentTimeMillis()+i * 20) % 8000.0
+					/ 4000 * Math.PI) * 350);
+		   int anim2 = (int) (Math.cos((System.currentTimeMillis()+i * 20) % 8000.0
+					/ 4000 * Math.PI) * 350);
+			draw(render, (width - 200) / 2 - anim, (height - 200) / 2 - anim2);
+		}
 	}
 }

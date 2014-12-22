@@ -18,8 +18,8 @@ import com.mime.gamething.graphics.Screen;
  */
 public class Display extends Canvas implements Runnable {
 
-	public static final int width = 1920;
-	public static final int height = 1200;
+	public static final int width = 920;
+	public static final int height = 200;
 	public static final String TITLE = "Gamething";
 
 	private Thread thread;
