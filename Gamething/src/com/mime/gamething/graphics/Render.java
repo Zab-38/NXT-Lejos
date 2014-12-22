@@ -25,13 +25,13 @@ private Display display;
 	// the x yOffset is called by the render function in screen
 	public void draw(Render render, int xOffset, int yOffset) {
 		// storing random coloured pixes into the array 'pixels'
-		for (int y = 0; y < render.height - 900; y++) {
+		for (int y = 0; y < render.height - 800; y++) {
 			int yPix = y + yOffset;
 			if (yPix < 0 || yPix >= display.height) {
 				continue;
 			}
 
-			for (int x = 0; x < render.height - 900; x++) {
+			for (int x = 0; x < render.height - 1100; x++) {
 				int xPix = x + xOffset;
 				if (xPix < 0 || xPix >= display.width) {
 					continue;

@@ -15,18 +15,18 @@ public class Screen extends Render {
 		}
 
 	}
-
+	// where the box is drawn
 	public void render() {
-		// where the box is drawn
+		//deletes the previous pixels to indicate a tail
 		for (int i = 0; i < width * height; i++) {
 			pixels[i] = 0;
 		}
 		for (int i = 0; i < 80; i++) {
 			int anim = (int) (Math.sin((System.currentTimeMillis()+i * 20) % 8000.0
 					/ 4000 * Math.PI) * 350);
-		   int anim2 = (int) (Math.cos((System.currentTimeMillis()+i * 20) % 8000.0
-					/ 4000 * Math.PI) * 350);
-			draw(render, (width - 200) / 2 - anim, (height - 200) / 2 - anim2);
+		   int anim2 = (int) (Math.cos((System.currentTimeMillis()+i * 20) % 16000.0
+					/ 8000 * Math.PI) * 350);
+			draw(render, (width - 200) / 2 - anim, (height - 470) / 2 - anim2);
 		}
 	}
 }
