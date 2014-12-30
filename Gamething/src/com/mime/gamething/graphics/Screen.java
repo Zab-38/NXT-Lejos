@@ -21,7 +21,7 @@ public class Screen extends Render {
 		for (int i = 0; i < width * height; i++) {
 			pixels[i] = 0;
 		}
-		for (int i = 0; i < 80; i++) {
+		for (int i = 0; i < 60; i++) {
 			int anim = (int) (Math.sin((System.currentTimeMillis()+i * 20) % 8000.0
 					/ 4000 * Math.PI) * 350);
 		   int anim2 = (int) (Math.cos((System.currentTimeMillis()+i * 20) % 16000.0

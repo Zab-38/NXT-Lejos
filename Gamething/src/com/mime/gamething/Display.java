@@ -36,7 +36,6 @@ public class Display extends Canvas implements Runnable {
 	private boolean drawTimerBool = true;
 	private int drawTimerInt = 0;
 	int frames = 0;
-	private static JLabel frameRate;
 	public Display() {
 		screen = new Screen(width, height);
 		bufferedImg = new BufferedImage(width, height,
@@ -128,8 +127,7 @@ public class Display extends Canvas implements Runnable {
 			pixels[i] = screen.pixels[i];
 		}
 		Graphics g = bs.getDrawGraphics();
-		g.drawImage(bufferedImg, 0, 0, width - drawTimerInt, height
-				- drawTimerInt, null);
+		g.drawImage(bufferedImg, 0, 0, width, height, null);
 		g.dispose();
 		bs.show();
 	}
@@ -146,8 +144,6 @@ public class Display extends Canvas implements Runnable {
 		frame.setTitle(TITLE);
 		game.start();
 		game.drawTimer();
-		frameRate = new JLabel("How many sides does this polygon have?");
-		frameRate.setHorizontalAlignment(SwingConstants.NORTH_WEST);
-		frame.getContentPane().add(frameRate, BorderLayout.NORTH);
+	
 	}
 }
