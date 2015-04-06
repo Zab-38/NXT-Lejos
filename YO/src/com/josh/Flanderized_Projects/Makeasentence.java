@@ -6,9 +6,9 @@ public class Makeasentence {
 
 	String consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
 	String pronouns = "a:an";
-	String identify = "You:I:He:She:Phil:Mr. Uvula";
-	String Verb = "ate:killed:urinated:painted:licked:salivated";
-	String noun = "Bird:Bladder:Korean Sweatshop:Turtle Nipple:Male Earlobe:Piece of Troll Feces:Antelope:Excavation Rig:Islamic Mosquito";
+	String identify = "You:I:He:She:Phil:Mr. Uvula:Ha-fi:Doosain:Joshiwa Kim:Callum:Seen:Reece:Jacob:That Guy";
+	String Verb = "ate:killed:urinated:painted:licked:salivated:blew up:liquified:excreted:bonked:sucked";
+	String noun = "Bird:Bladder:Korean Sweatshop:Turtle Nipple:Male Earlobe:Piece of Troll Feces:Antelope:Excavation Rig:Islamic Mosquito:Large Hadron Collider:Meow";
 
 	String[] identifyAsArray = identify.split(":");
 	String[] verbAsArray = Verb.split(":");
@@ -67,19 +67,15 @@ public class Makeasentence {
 // where it says line = line - ms.make blah blah blah, i can;t subtract
 		int lineCount = 0;
 		
-		while (lineCount < 20) {
+		while (lineCount < 1) {
 			
 			line = line + ms.makeSentence();
-			if(line.length() > 85)
-			{
+		
 				System.out.println(line);
 				line = "";
 				lineCount++;
-			}
-			if(lineCount > 10 && lineCount < 12) {
-				System.out.println("");
-				
-			}
+			
+			
 		}
 		
 		
