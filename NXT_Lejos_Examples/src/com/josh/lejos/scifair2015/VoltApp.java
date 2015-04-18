@@ -6,7 +6,7 @@ import org.scifair.util.BaseLejos;
 
 public class VoltApp extends BaseLejos {
 
-	VoltmeterSensor s = new VoltmeterSensor(SensorPort.S1);
+	VoltmeterSensor s = new VoltmeterSensor(SensorPort.S2);
 	
 
 	public void run() {
