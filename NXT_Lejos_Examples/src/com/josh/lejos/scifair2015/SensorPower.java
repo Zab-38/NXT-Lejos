@@ -35,13 +35,14 @@ public class SensorPower extends BaseLejos {
 		dIn = conn.openDataInputStream();
 		LCD.drawString("connected", 2, 2);
 		while (true) {
-			char b;
-			double value = 0;
+			byte b;
+			char c;
 			try {
 				if (dIn.available() == 0)
 					continue;
 
-				b = dIn.readChar();
+				b = dIn.readByte();
+				c= (char) b;
 
 				LCD.clearDisplay();
 				System.out.println(b);
