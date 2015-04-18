@@ -1,5 +1,7 @@
 package org.scifair2015.commands;
 
+import java.io.DataOutputStream;
+
 public abstract class Command {
 
 	protected byte cmd;
@@ -8,4 +10,7 @@ public abstract class Command {
 	{
 		return cmd;
 	}
+	
+	abstract public void sendCommand(DataOutputStream dos);
+	
 }

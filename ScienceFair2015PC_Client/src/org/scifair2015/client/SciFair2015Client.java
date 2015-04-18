@@ -20,7 +20,7 @@ import com.bitcold.charts.views.ChartView;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-public class Client {
+public class SciFair2015Client {
 
 	DataInputStream dis;
 	DataOutputStream dos;
@@ -41,6 +41,7 @@ public class Client {
 		dos = new DataOutputStream(outputStream);
 		dis = new DataInputStream(inputStream);
 		
+		
 		nxtComm.close();
 	}
 	
@@ -50,9 +51,11 @@ public class Client {
 	
 	public static void main(String[] args) {
 		
-		Client c = new  Client();
+		SciFair2015Client c = new  SciFair2015Client();
 		try {
 			c.initiateBluetooth();
+			
+			
 		} catch (NXTCommException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

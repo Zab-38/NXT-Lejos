@@ -89,7 +89,7 @@ public class LineChartToolkit {
 	{
 
 		// Plot
-		cwaLine.getBlock( ).setBackground( ColorDefinitionImpl.WHITE( ) );
+		cwaLine.getBlock( ).setBackground( ColorDefinitionImpl.CREAM() );
 		Plot p = cwaLine.getPlot( );
 		p.getClientArea( ).setBackground( ColorDefinitionImpl.create( 255,
 				255,
@@ -159,7 +159,7 @@ public class LineChartToolkit {
 		ls.getLineAttributes( ).setColor( ColorDefinitionImpl.CREAM( ) );
 		for ( int i = 0; i < ls.getMarkers( ).size( ); i++ )
 		{
-			( (Marker) ls.getMarkers( ).get( i ) ).setType( MarkerType.CIRCLE_LITERAL);
+			( (Marker) ls.getMarkers( ).get( i ) ).setType( MarkerType.CROSS_LITERAL);
 		}
 		ls.getLabel( ).setVisible( true );
 
