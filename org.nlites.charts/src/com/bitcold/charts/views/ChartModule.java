@@ -1,8 +1,6 @@
 package com.bitcold.charts.views;
 
 import org.eclipse.birt.chart.model.Chart;
-import org.eclipse.swt.internal.win32.CREATESTRUCT;
-
 import com.bitcold.charts.examples.LineChartToolkit;
 import com.bitcold.charts.tookit.CategoryValue;
 import com.google.inject.AbstractModule;

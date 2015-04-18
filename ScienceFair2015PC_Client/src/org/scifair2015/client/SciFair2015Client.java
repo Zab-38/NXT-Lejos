@@ -14,6 +14,7 @@ import lejos.pc.comm.NXTCommFactory;
 import lejos.pc.comm.NXTInfo;
 
 import org.collab.swt.utils.NLitesStandardSWTFactory;
+import org.scifair2015.commands.CmdTerminate;
 
 import com.bitcold.charts.views.ChartModule;
 import com.bitcold.charts.views.ChartView;
@@ -27,6 +28,7 @@ public class SciFair2015Client {
 	
 	public void initiateBluetooth() throws NXTCommException, IOException
 	{
+		
 		NXTComm nxtComm = NXTCommFactory.createNXTComm(NXTCommFactory.BLUETOOTH);
 		NXTInfo[] nxtInfo = nxtComm.search("NXT");
 		List<NXTInfo> list = Arrays.asList(nxtInfo);
@@ -41,7 +43,8 @@ public class SciFair2015Client {
 		dos = new DataOutputStream(outputStream);
 		dis = new DataInputStream(inputStream);
 		
-		
+		CmdTerminate cmd = new CmdTerminate();
+		cmd.sendCommand(dos);
 		nxtComm.close();
 	}
 	
