@@ -2,12 +2,14 @@ package routineFunctions;
 
 import org.scifair.util.BaseLejos;
 
-import lejos.nxt.Motor;
-public class RTPrintVoltage extends BaseLejos{
+import com.josh.lejos.scifair2015.VoltmeterSensor;
 
+import lejos.nxt.Motor;
+import lejos.nxt.SensorPort;
+public class RTPrintVoltage extends BaseLejos{
+	VoltmeterSensor s = new VoltmeterSensor(SensorPort.S2);
 	public void Print() {
-		Motor.A.setSpeed(9);
-    	Motor.A.backward();
+		System.out.println(s.readVoltage());
 	}
 	
 public static void main(String[] args) {
