@@ -3,9 +3,9 @@ package org.scifair2015.commands;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-public class CmdLaserOn extends Command {
-	public CmdLaserOn() {
-		cmd = 'd';
+public class CmdTerminate extends Command {
+	public CmdTerminate() {
+		cmd = '5';
 	}
 
 	@Override
@@ -13,10 +13,8 @@ public class CmdLaserOn extends Command {
 
 		try {
 			dos.write(cmd);
-			dos.flush();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
 }
