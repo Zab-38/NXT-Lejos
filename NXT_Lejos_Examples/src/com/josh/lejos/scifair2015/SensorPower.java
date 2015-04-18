@@ -16,11 +16,11 @@ public class SensorPower extends BaseLejos {
 				System.out.println(s.readVoltage());
 				Motor.A.setSpeed(0);
 		    	Motor.A.backward();
-				Thread.sleep(500);
+				Thread.sleep(250);
 				SensorPort.S1.setPowerType(0);
-				Motor.A.setSpeed(72);
+				Motor.A.setSpeed(9);
 		    	Motor.A.backward();
-				Thread.sleep(500);
+				Thread.sleep(250);
 
 			} catch (InterruptedException e) {
 				e.printStackTrace();
