@@ -87,7 +87,7 @@ public class SciFair2015Client {
 	}
 	
 	
-	public void initiateBluetooth() throws NXTCommException, IOException
+	static public void initiateBluetooth() throws NXTCommException, IOException
 	{
 		
 		nxtComm = NXTCommFactory.createNXTComm(NXTCommFactory.BLUETOOTH);
@@ -109,9 +109,8 @@ public class SciFair2015Client {
 	
 	public static void main(String[] args) {
 		
-		SciFair2015Client c = new  SciFair2015Client();
 		try {
-			c.initiateBluetooth();
+			SciFair2015Client.initiateBluetooth();
 			
 			
 		} catch (NXTCommException e) {

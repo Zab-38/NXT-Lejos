@@ -3,10 +3,16 @@ package com.bitcold.charts.views;
 
 import org.collab.swt.utils.NLitesStandardSWTFactory;
 import org.eclipse.birt.chart.model.Chart;
+import org.eclipse.draw2d.ColorConstants;
+import org.eclipse.draw2d.LightweightSystem;
+import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.nebula.visualization.widgets.datadefinition.IManualValueChangeListener;
+import org.eclipse.nebula.visualization.widgets.figures.ScaledSliderFigure;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
@@ -24,7 +30,12 @@ public class ChartView extends ViewPart{
 
 	private ChartControl chartControl;
 	private Button buttonCmd1;
+	private ScaledSliderFigure slider1;
 	
+	public ScaledSliderFigure getSlider1() {
+		return slider1;
+	}
+
 	public Button getButtonCmd1() {
 		return buttonCmd1;
 	}
@@ -74,6 +85,30 @@ public class ChartView extends ViewPart{
 		return buttonCmd4;
 	}
 	
+	public ScaledSliderFigure getSlider1(Composite parent) {
+
+		Canvas canvas = new Canvas(parent, SWT.BORDER);
+		canvas.setBackground(NLitesStandardSWTFactory.listBlue);
+		GridData data =  new GridData();
+		data.heightHint = 75;
+		data.widthHint =  400;
+		canvas.setLayoutData(data);
+		
+		
+		LightweightSystem lws = new LightweightSystem(canvas);
+		
+		slider1 = new ScaledSliderFigure();
+		slider1.setRange((double) 0, (double)360);
+		slider1.setHorizontal(true);
+		slider1.setEffect3D(true);
+		slider1.setShowMarkers(false);
+		slider1.setMajorTickMarkStepHint(30);
+		slider1.setThumbColor(ColorConstants.gray);
+		lws.setContents(slider1);
+		return slider1;
+	}
+	
+	
 	
 
 	@Inject
@@ -90,10 +125,10 @@ public class ChartView extends ViewPart{
 	 */
 	public void createPartControl(Composite parent) {
 		
-		GridLayout layout = new GridLayout();
-		layout.numColumns = 1;
-		parent.setLayout(layout);
+		parent.setLayout(NLitesStandardSWTFactory.createGridLayout(1));
+		
 
+		getSlider1(parent);
 		getButtonCmd1(parent);
 		getButtonCmd2(parent);
 		getButtonCmd3(parent);

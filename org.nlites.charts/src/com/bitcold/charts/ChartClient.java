@@ -17,19 +17,5 @@ public class ChartClient {
 		ChartView chartView = i.getInstance(ChartView.class);
 		NLitesStandardSWTFactory.viewViewPart(chartView);
 		
-		chartView.getButtonCmd1().addSelectionListener(new SelectionListener() {
-			
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-
-				
-			}
-			
-			@Override
-			public void widgetDefaultSelected(SelectionEvent e) {
-				
-			}
-		});
-
 	}
 }
