@@ -1,6 +1,7 @@
 package com.bitcold.charts.views;
 
 import org.eclipse.birt.chart.model.Chart;
+import org.eclipse.swt.internal.win32.CREATESTRUCT;
 
 import com.bitcold.charts.examples.LineChartToolkit;
 import com.bitcold.charts.tookit.CategoryValue;
@@ -18,7 +19,7 @@ public class ChartModule extends AbstractModule {
 	
 	private double f(double x)
 	{
-		return x*x -10;
+		return x*x;
 	}
 	
 	
@@ -26,11 +27,12 @@ public class ChartModule extends AbstractModule {
 	Chart provideChart() {
 		Chart chart = null; 
 		CategoryValue cv = new CategoryValue();
-		for (double x = -10; x < 10; x += 0.2) {
+		for (double x = -10; x < 10; x += 0.5) {
 			cv.add(Double.toString(x), f(x));
 		}
 
 		LineChartToolkit lineChartKit = new LineChartToolkit(cv);
+		
 
 		chart = lineChartKit.getLineChart();
 //		chart = lineChartKit.createJChart_DataPoints();

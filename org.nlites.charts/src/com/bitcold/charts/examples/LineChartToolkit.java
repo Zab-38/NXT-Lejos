@@ -96,7 +96,7 @@ public class LineChartToolkit {
 				225 ) );
 
 		// Title
-		cwaLine.getTitle( ).getLabel( ).getCaption( ).setValue( "Line Chart" );//$NON-NLS-1$
+		cwaLine.getTitle( ).getLabel( ).getCaption( ).setValue( "Science Fair 2015" );//$NON-NLS-1$
 
 		// Legend
 		cwaLine.getLegend( ).setVisible( false );
