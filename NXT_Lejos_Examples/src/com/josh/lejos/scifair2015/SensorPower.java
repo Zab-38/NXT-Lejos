@@ -45,21 +45,21 @@ public class SensorPower extends BaseLejos {
 				c= (char) b;
 
 				LCD.clearDisplay();
-				System.out.println(b);
+				System.out.println(c);
 				// value = dIn.readDouble();
-				if (b == '0') {
+				if (c == '0') {
 					rtc.MotorActivate();
-				} else if (b == '1') {
+				} else if (c == '1') {
 					rtc.MotorDectivate();
-				} else if (b == '2') {
+				} else if (c == '2') {
 					rtc.PowerOn();
-				} else if (b == '3') {
+				} else if (c == '3') {
 					rtc.PowerOff();
-				} else if (b == '4') {
+				} else if (c == '4') {
 					rtc.Print();
-				} else if (b == '5') {
+				} else if (c == '5') {
 					rtc.Exit();
-				} else if (b == 'x')
+				} else if (c == 'x')
 					break;
 				else {
 					continue;

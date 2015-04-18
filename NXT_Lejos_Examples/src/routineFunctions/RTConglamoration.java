@@ -34,21 +34,9 @@ public class RTConglamoration extends BaseLejos{
 	
 	public void Exit()
 	{
-		Button.ESCAPE.addButtonListener(new ButtonListener() {
-
-			@Override
-			public void buttonReleased(Button b) {
-
-			}
-
-			@Override
-			public void buttonPressed(Button b) {
 			
-				System.exit(1);
+    	System.exit(1);
 
-			}
-		});
-		
 	}
 public static void main(String[] args) {
 	RTConglamoration RTC = new RTConglamoration();

@@ -13,6 +13,7 @@ public class CmdTerminate extends Command {
 
 		try {
 			dos.write(cmd);
+			dos.flush();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
