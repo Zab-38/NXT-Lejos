@@ -55,22 +55,22 @@ public class ChartView extends ViewPart{
 
 
 	public Button getButtonCmd1(Composite parent) {
-		createButton(buttonCmd1, parent, "Command 1");
+		buttonCmd1 = createButton(buttonCmd1, parent, "Laser On");
 		return buttonCmd1;
 	}
 
 	public Button getButtonCmd2(Composite parent) {
 		
-		createButton(buttonCmd2, parent, "Command 2");
+		buttonCmd2 = createButton(buttonCmd2, parent, "Laser Off");
 		return buttonCmd2;
 	}
 	public Button getButtonCmd3(Composite parent) {
-		createButton(buttonCmd3, parent, "Command 3");
+		buttonCmd3 = createButton(buttonCmd3, parent, "Command 3");
 		return buttonCmd3;
 	}
 	
 	public Button getButtonCmd4(Composite parent) {
-		createButton(buttonCmd4, parent, "Command 4");
+		buttonCmd4 = createButton(buttonCmd4, parent, "&Terminate");
 		return buttonCmd4;
 	}
 	
@@ -97,6 +97,7 @@ public class ChartView extends ViewPart{
 		getButtonCmd1(parent);
 		getButtonCmd2(parent);
 		getButtonCmd3(parent);
+		getButtonCmd4(parent);
 		
 		
 		

@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class CmdLaserOn extends Command {
 	public CmdLaserOn() {
-		cmd = 'd';
+		cmd = '2';
 	}
 
 	@Override

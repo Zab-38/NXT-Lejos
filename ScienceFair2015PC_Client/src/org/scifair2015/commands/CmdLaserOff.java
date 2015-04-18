@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class CmdLaserOff extends Command {
 	public CmdLaserOff() {
-		cmd = 'e';
+		cmd = '3';
 	}
 
 	@Override
@@ -13,6 +13,7 @@ public class CmdLaserOff extends Command {
 
 		try {
 			dos.write(cmd);
+			dos.flush();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
