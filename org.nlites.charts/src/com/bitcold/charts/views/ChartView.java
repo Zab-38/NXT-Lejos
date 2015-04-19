@@ -5,12 +5,13 @@ import org.collab.swt.utils.NLitesStandardSWTFactory;
 import org.eclipse.birt.chart.model.Chart;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.LightweightSystem;
-import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.nebula.visualization.widgets.datadefinition.IManualValueChangeListener;
+import org.eclipse.nebula.visualization.widgets.figures.GaugeFigure;
+import org.eclipse.nebula.visualization.widgets.figures.KnobFigure;
 import org.eclipse.nebula.visualization.widgets.figures.ScaledSliderFigure;
+import org.eclipse.nebula.widgets.oscilloscope.multichannel.Oscilloscope;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
@@ -31,7 +32,21 @@ public class ChartView extends ViewPart{
 	private ChartControl chartControl;
 	private Button buttonCmd1;
 	private ScaledSliderFigure slider1;
+	private GaugeFigure guage;
+	private KnobFigure knob;
 	
+    
+
+
+	public KnobFigure getKnob() {
+		return knob;
+	}
+
+
+	public GaugeFigure getGuage() {
+		return guage;
+	}
+
 	public ScaledSliderFigure getSlider1() {
 		return slider1;
 	}
@@ -108,6 +123,37 @@ public class ChartView extends ViewPart{
 		return slider1;
 	}
 	
+	public GaugeFigure getGauge(Composite parent)
+	{
+		Canvas canvas = new Canvas(parent, SWT.BORDER);
+		canvas.setBackground(NLitesStandardSWTFactory.listBlue);
+		GridData data =  new GridData();
+		data.heightHint = 100;
+		data.widthHint =  100;
+		canvas.setLayoutData(data);
+
+		LightweightSystem lws = new LightweightSystem(canvas);
+		guage = new GaugeFigure();
+		lws.setContents(guage);
+		return guage;
+		
+	}
+	
+	public KnobFigure getKnob(Composite parent)
+	{
+		Canvas canvas = new Canvas(parent, SWT.BORDER);
+		canvas.setBackground(NLitesStandardSWTFactory.listBlue);
+		GridData data =  new GridData();
+		data.heightHint = 150;
+		data.widthHint =  150;
+		canvas.setLayoutData(data);
+		LightweightSystem lws = new LightweightSystem(canvas);
+		knob = new KnobFigure();
+		knob.setRange(0, 360);
+		lws.setContents(knob);
+		return knob;
+		
+	}
 	
 	
 
@@ -125,14 +171,16 @@ public class ChartView extends ViewPart{
 	 */
 	public void createPartControl(Composite parent) {
 		
-		parent.setLayout(NLitesStandardSWTFactory.createGridLayout(1));
-		
+		parent.setLayout(NLitesStandardSWTFactory.createGridLayout(2));
+		Canvas leftCanvas = createLeftCanvas(parent);
 
-		getSlider1(parent);
-		getButtonCmd1(parent);
-		getButtonCmd2(parent);
-		getButtonCmd3(parent);
-		getButtonCmd4(parent);
+		getKnob(leftCanvas);
+		getGauge(leftCanvas);
+		getSlider1(leftCanvas);
+		getButtonCmd1(leftCanvas);
+		getButtonCmd2(leftCanvas);
+		getButtonCmd3(leftCanvas);
+		getButtonCmd4(leftCanvas);
 		
 		
 		
@@ -142,6 +190,20 @@ public class ChartView extends ViewPart{
 		chartControl.setVisible(true);
 		chartControl.setLayoutData(gdata);
 		chartControl.setCm(chart);
+		
+	}
+	
+	public Canvas createLeftCanvas(Composite parent)
+	{
+		
+		Canvas leftCanvas = new Canvas(parent,SWT.None);
+		leftCanvas.setBackground(NLitesStandardSWTFactory.honeyDew);
+		GridData data = new  GridData(SWT.BEGINNING, SWT.BEGINNING, false, true);
+		data.widthHint = 300;
+		data.grabExcessVerticalSpace= true;
+		leftCanvas.setLayoutData(data);
+		leftCanvas.setLayout(NLitesStandardSWTFactory.createGridLayout(1));
+		return leftCanvas;
 		
 	}
 
