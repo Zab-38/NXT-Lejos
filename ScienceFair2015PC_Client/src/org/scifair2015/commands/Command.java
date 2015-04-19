@@ -4,7 +4,7 @@ import java.io.DataOutputStream;
 
 public abstract class Command {
 
-	protected byte cmd;
+	protected int cmd;
 	
 	public int getCmd()
 	{
