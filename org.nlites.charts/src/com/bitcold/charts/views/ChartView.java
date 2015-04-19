@@ -219,7 +219,7 @@ public class ChartView extends ViewPart{
 	{
 		if(button ==null) 
 			{
-			button = new Button(parent, SWT.None);
+			button = new Button(parent, SWT.TOGGLE);
 			button.setText(text);
 			
 			}

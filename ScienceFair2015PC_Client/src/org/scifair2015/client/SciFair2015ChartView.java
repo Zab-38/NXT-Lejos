@@ -1,7 +1,9 @@
 package org.scifair2015.client;
 
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.scifair2015.commands.Cmd1;
@@ -20,8 +22,23 @@ public class SciFair2015ChartView extends ChartView {
 
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				Cmd1 cmd = new Cmd1();
-				cmd.sendCommand();
+				if(!getButtonCmd1().getSelection())
+				{
+					Image image = parent.getDisplay().getSystemImage(SWT.ICON_WORKING);
+					b.setImage(image);
+					Cmd1 cmd = new Cmd1();
+					cmd.sendCommand();
+					
+				}
+				else
+				{
+					Image image = parent.getDisplay().getSystemImage(SWT.ICON_QUESTION);
+					b.setImage(image);
+					Cmd2 cmd = new Cmd2();
+					cmd.sendCommand();
+					
+				}	
+				
 
 				int i = SciFair2015Client.readInt();
 				System.out.println(i +" echoed back");
