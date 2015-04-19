@@ -89,7 +89,7 @@ public class SciFair2015Client {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
                   Cmd1 cmd = new Cmd1();
-                  cmd.sendCommand(dos);
+                  cmd.sendCommand();
 				
 			}
 			
@@ -105,7 +105,7 @@ public class SciFair2015Client {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
                  Cmd2 cmd = new Cmd2();
-                 cmd.sendCommand(dos);
+                 cmd.sendCommand();
 			}
 			
 			@Override
@@ -119,7 +119,7 @@ public class SciFair2015Client {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				Cmd4 cmd = new Cmd4();
-				cmd.sendCommand(dos);
+				cmd.sendCommand();
 				try {
 					nxtComm.close();
 				} catch (IOException e1) {

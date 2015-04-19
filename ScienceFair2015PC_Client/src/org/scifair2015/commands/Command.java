@@ -1,8 +1,8 @@
 package org.scifair2015.commands;
 
-import java.io.DataOutputStream;
+import org.scifair2015.client.SciFair2015Client;
 
-public abstract class Command {
+public class Command {
 
 	protected int cmd;
 	
@@ -11,6 +11,9 @@ public abstract class Command {
 		return cmd;
 	}
 	
-	abstract public void sendCommand(DataOutputStream dos);
+	public void sendCommand()
+	{
+		SciFair2015Client.writeInt(cmd);
+	}
 	
 }
