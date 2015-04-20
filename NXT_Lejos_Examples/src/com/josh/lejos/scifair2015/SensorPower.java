@@ -3,8 +3,10 @@ package com.josh.lejos.scifair2015;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 
 import lejos.nxt.LCD;
+import lejos.nxt.Motor;
 import lejos.nxt.SensorPort;
 import lejos.nxt.comm.Bluetooth;
 import lejos.nxt.comm.NXTConnection;
@@ -18,7 +20,10 @@ public class SensorPower extends BaseLejos {
 	DataOutputStream dOut;
 	DataInputStream dIn;
 	NXTConnection conn;
-	VoltmeterSensor s = new VoltmeterSensor(SensorPort.S2);
+	VoltmeterSensor voltageSensor = new VoltmeterSensor(SensorPort.S2);
+	int MotorA = 0;
+	int MotorB = 0;
+	int MotorC = 0;
 
 	@Override
 	public void run() {
@@ -36,37 +41,102 @@ public class SensorPower extends BaseLejos {
 				if (dIn.available() == 0)
 					continue;
 
-				
-				
 				c = readInt();
 
 				System.out.println(c);
 				// value = dIn.readDouble();
 				if (c == 1) {
-					sendInt(c);
-					System.out.println("writing short: "+ c);
-//					rtc.MotorActivate();
-				} else 
-				if (c == 2) {
+					SensorPort.S1.setPowerType(1);
+					// rtc.MotorActivate();
+				} else if (c == 2) {
 
+					Motor.A.rotate(180);
 					sendInt(c);
-					System.out.println("writing short: "+ c);
-//					rtc.MotorDectivate();
+					// System.out.println("writing short: "+ c);
+
 				} else if (c == 3) {
+
+					Motor.A.rotate(90);
 					sendInt(c);
-					System.out.println("writing short: "+ c);
+					// System.out.println("writing short: "+ c);
 				} else if (c == 4) {
-//					rtc.PowerOff();
-				} else if (c == 5) {
-//					rtc.Print();
-				} else if (c >= 30) {
+
+					Motor.B.rotate(180);
 					sendInt(c);
-					System.out.println("writing >=30 " + c );
-				} else if (c == 1000)
+					// rtc.PowerOff();
+				} else if (c == 5) {
+					Motor.B.rotate(90);
+					sendInt(c);
+				} else if (c == 6) {
+					Motor.C.rotate(180);
+					sendInt(c);
+				} else if (c == 7) {
+					Motor.C.rotate(90);
+					sendInt(c);
+				} else if (c == 8) {
+					sendInt(c);
+					for (int i = 0; i < 30; i++) {
+						try {
+							Thread.sleep(200);
+							Motor.A.rotate(3);
+							SensorPort.S1.setPowerType(1);
+							System.out.println(voltageSensor.readVoltage());
+							Thread.sleep(1000);
+							SensorPort.S1.setPowerType(0);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+
+					}
+
+				} else if (c == 9) {
+					for (int i = 0; i < 30; i++) {
+						sendInt(c);
+						try {
+
+							SensorPort.S1.setPowerType(1);
+							Motor.B.rotate(3);
+							System.out.println(voltageSensor.readVoltage());
+							SensorPort.S1.setPowerType(0);
+							Thread.sleep(300);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+
+				} else if (c == 10) {
+					sendInt(c);
+					try {
+
+						SensorPort.S1.setPowerType(1);
+						Motor.C.rotate(3);
+						System.out.println(voltageSensor.readVoltage());
+						SensorPort.S1.setPowerType(0);
+						Thread.sleep(300);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				} else if (c == 11) {
+					SensorPort.S1.setPowerType(0);
+				} else 
+					if(c==20)
 				{
-					break;
+					
+					double voltage = voltageSensor.readVoltage();
+					System.out.println(voltage);
+					sendInt((int)voltage);
 				}
-				else {
+				  
+				
+				else if (c >= 30) {
+					sendInt(c);
+					System.out.println("writing >=30 " + c);
+				} else if (c == 1000) {
+					break;
+				} else {
 					continue;
 				}
 			} catch (IOException e) {
@@ -76,21 +146,19 @@ public class SensorPower extends BaseLejos {
 
 		close();
 	}
-	
-	
-	public int readInt()
-	{
+
+	public int readInt() {
 		byte[] b = new byte[4];
 		try {
-			dIn.read(b,0,4);
+			dIn.read(b, 0, 4);
 		} catch (IOException e) {
 			e.getMessage();
 			return -666;
 		}
 		return EndianTools.decodeIntLE(b, 0);
 	}
-	public void sendInt(int i)
-	{
+
+	public void sendInt(int i) {
 		byte[] b = new byte[4];
 		EndianTools.encodeIntLE(i, b, 0);
 		try {
