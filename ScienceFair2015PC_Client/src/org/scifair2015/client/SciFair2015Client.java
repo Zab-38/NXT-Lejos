@@ -64,7 +64,7 @@ public class SciFair2015Client {
 		try {
 			SciFair2015Client.dos.write(_b);
 			SciFair2015Client.dos.flush();
-			System.out.println("echoed: " + i);
+			System.out.println("sent: " + i);
 
 		} catch (IOException e1) {
 			e1.printStackTrace();

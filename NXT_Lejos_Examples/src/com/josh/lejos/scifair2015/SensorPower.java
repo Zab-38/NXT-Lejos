@@ -116,7 +116,6 @@ public class SensorPower extends BaseLejos {
 						SensorPort.S1.setPowerType(0);
 						Thread.sleep(300);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				} else if (c == 11) {
@@ -131,9 +130,22 @@ public class SensorPower extends BaseLejos {
 				}
 				  
 				
-				else if (c >= 30) {
-					sendInt(c);
-					System.out.println("writing >=30 " + c);
+				else if (c == 20) {
+					int motor = readInt();
+					int position = readInt();
+					switch(motor)
+					{
+					case 1:
+						Motor.A.rotate(position, true);
+						break;
+					case 2:
+						Motor.B.rotate(position,true);
+						break;
+					case 3:	
+						Motor.C.rotate(position,true);
+						break;
+					}
+					
 				} else if (c == 1000) {
 					break;
 				} else {

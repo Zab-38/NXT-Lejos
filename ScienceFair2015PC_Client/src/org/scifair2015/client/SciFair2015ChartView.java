@@ -3,6 +3,7 @@ package org.scifair2015.client;
 import org.eclipse.draw2d.MouseEvent;
 import org.eclipse.draw2d.MouseListener;
 import org.eclipse.nebula.visualization.widgets.figures.GaugeFigure;
+import org.eclipse.nebula.visualization.widgets.figures.KnobFigure;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
@@ -20,6 +21,7 @@ import org.scifair2015.commands.CmdButtonA180;
 import org.scifair2015.commands.CmdLaserOff;
 import org.scifair2015.commands.CmdLaserOn;
 import org.scifair2015.commands.CmdMeasureVoltage;
+import org.scifair2015.commands.CmdRotateFilter;
 
 import com.bitcold.charts.views.ChartView;
 
@@ -61,8 +63,9 @@ public class SciFair2015ChartView extends ChartView {
 	}
 	
 	@Override
-	public GaugeFigure getGauge(Composite parent) {
-		GaugeFigure gauge = super.getGauge(parent);
+	public GaugeFigure createGauge(Composite parent) {
+		GaugeFigure gauge = super.createGauge(parent);
+		gauge.setValueLabelFormat("#,### mV");
 		gauge.addMouseListener(new MouseListener(){
 
 			@Override
@@ -80,7 +83,7 @@ public class SciFair2015ChartView extends ChartView {
 	                CmdMeasureVoltage cmd = new CmdMeasureVoltage();
 	                cmd.sendCommand();
 	                int voltage = SciFair2015Client.readInt();
-	                getGuage().setValue(-voltage);
+	                getGuage().setValue(voltage);
 			}});
 		return gauge;
 	}
@@ -311,6 +314,55 @@ public class SciFair2015ChartView extends ChartView {
 
 	}
 
+	@Override
+	public KnobFigure createKnob1(Composite parent) {
+		 final KnobFigure k = super.createKnob1(parent);
+		 k.addMouseListener(new MouseListener(){
+
+			@Override
+			public void mouseDoubleClicked(MouseEvent arg0) {
+				
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				CmdRotateFilter cmd = new CmdRotateFilter(1, (int)k.getValue());
+				cmd.sendCommand();
+				
+			}});
+		 return k;
+	}
+	
+	
+	@Override
+	public KnobFigure createKnob2(Composite parent) {
+
+		final KnobFigure k = super.createKnob2(parent);
+		k.addMouseListener(new MouseListener(){
+
+			@Override
+			public void mouseDoubleClicked(MouseEvent arg0) {
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				CmdRotateFilter cmd = new CmdRotateFilter(2, (int)k.getValue());
+				cmd.sendCommand();
+			}});
+		return super.createKnob2(parent);
+	}
 
 //	@Override
 //	public KnobFigure getKnob(Composite parent) {

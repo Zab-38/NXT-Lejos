@@ -62,7 +62,6 @@ public class LejosServer extends BaseLejos{
 		while (true) 
 		{
             char b;
-            double value=0;
             try
             {
             	if(dIn.available()== 0)continue;

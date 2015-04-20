@@ -3,6 +3,7 @@ package com.bitcold.charts.views;
 import org.collab.swt.utils.NLitesStandardSWTFactory;
 import org.eclipse.birt.chart.model.Chart;
 import org.eclipse.draw2d.LightweightSystem;
+import org.eclipse.draw2d.MouseEvent;
 import org.eclipse.draw2d.MouseListener;
 import org.eclipse.nebula.visualization.widgets.figures.GaugeFigure;
 import org.eclipse.nebula.visualization.widgets.figures.KnobFigure;
@@ -31,12 +32,14 @@ public class ChartView extends ViewPart {
 
 	private ChartControl chartControl;
 	private Button buttonCmd1;
-	private KnobFigure knob;
+	private KnobFigure knob1;
+	private KnobFigure knob2;
+	private KnobFigure knob3;
 
 	Image on;
 	Image off;
 
-	private GaugeFigure guage;
+	private GaugeFigure gauge;
 
 	public void initImageResources(Composite parent) {
 		on = new Image(parent.getDisplay(),
@@ -45,12 +48,12 @@ public class ChartView extends ViewPart {
 				ChartClient.class.getResourceAsStream("off.png"));
 	}
 
-	// public KnobFigure getKnob() {
-	// return knob;
-	// }
+	public KnobFigure getKnob1() {
+		return knob1;
+	}
 
 	public GaugeFigure getGuage() {
-		return guage;
+		return gauge;
 	}
 
 	public Button getButtonCmd1() {
@@ -80,12 +83,15 @@ public class ChartView extends ViewPart {
 	public Button getButtonCmd7() {
 		return buttonCmd7;
 	}
+
 	public Button getButtonCmd8() {
 		return buttonCmd8;
 	}
+
 	public Button getButtonCmd9() {
 		return buttonCmd9;
 	}
+
 	public Button getButtonCmd10() {
 		return buttonCmd10;
 	}
@@ -95,18 +101,19 @@ public class ChartView extends ViewPart {
 	private Button buttonCmd3;
 
 	private Button buttonCmd4;
-	
+
 	private Button buttonCmd5;
 
 	private Button buttonCmd6;
 
 	private Button buttonCmd7;
-	
+
 	private Button buttonCmd8;
 
 	private Button buttonCmd9;
-	
+
 	private Button buttonCmd10;
+
 
 	public Button getButtonLaserOnOff(Composite parent) {
 		initImageResources(parent);
@@ -114,7 +121,7 @@ public class ChartView extends ViewPart {
 		buttonCmd1.setImage(off);
 		GridData gd = new GridData(150, 150);
 		buttonCmd1.setLayoutData(gd);
-		
+
 		buttonCmd1.addSelectionListener(new SelectionListener() {
 
 			@Override
@@ -172,10 +179,12 @@ public class ChartView extends ViewPart {
 		buttonCmd8 = createButton(buttonCmd8, parent, "1GraphFunc");
 		return buttonCmd8;
 	}
+
 	public Button getButtonCmd9(Composite parent) {
 		buttonCmd9 = createButton(buttonCmd9, parent, "2GraphFunc");
 		return buttonCmd9;
 	}
+
 	public Button getButtonCmd10(Composite parent) {
 		buttonCmd10 = createButton(buttonCmd10, parent, "3GraphFunc");
 		return buttonCmd10;
@@ -204,42 +213,79 @@ public class ChartView extends ViewPart {
 	// return slider1;
 	// }
 
-	 public GaugeFigure getGauge(Composite parent)
-	 {
-	 Canvas canvas = new Canvas(parent, SWT.BORDER);
-	 GridData data = new GridData();
-	 data.heightHint = 150;
-	 data.widthHint = 150;
-	 canvas.setLayoutData(data);
-	
-	 LightweightSystem lws = new LightweightSystem(canvas);
-	 guage = new GaugeFigure();
-	 guage.setRange(0, 1000);
-	 guage.setValue(0);
-	 guage.setLoLevel(0);
-	 guage.setHihiLevel(400);
-	 lws.setContents(guage);
-	 return guage;
-	
-	 }
+	public GaugeFigure createGauge(Composite parent) {
+		if (gauge != null)
+			return gauge;
+		Canvas canvas = new Canvas(parent, SWT.BORDER);
+		GridData data = new GridData();
+		data.heightHint = 150;
+		data.widthHint = 150;
+		canvas.setLayoutData(data);
 
-	// public KnobFigure getKnob(Composite parent)
-	// {
-	// Canvas canvas = new Canvas(parent, SWT.BORDER);
-	// GridData data = new GridData();
-	// data.heightHint = 150;
-	// data.widthHint = 150;
-	// canvas.setLayoutData(data);
-	// LightweightSystem lws = new LightweightSystem(canvas);
-	// knob = new KnobFigure();
-	// knob.setRange(0, 360);
-	// lws.setContents(knob);
-	// return knob;
-	//
-	// }
+		LightweightSystem lws = new LightweightSystem(canvas);
+		gauge = new GaugeFigure();
+		gauge.setRange(0, 60);
+		gauge.setValue(0);
+		gauge.setLoLevel(0);
+		gauge.setHihiLevel(400);
+		lws.setContents(gauge);
+		return gauge;
+
+	}
+
+	public KnobFigure createKnob1(Composite parent) {
+
+		return createKnob(knob1, parent);
+	}
+	
+	public KnobFigure createKnob2(Composite parent) {
+		return createKnob(knob2, parent);
+	}
+	
+	
+	public KnobFigure createKnob3(Composite parent) {
+		return createKnob(knob3,parent);
+	}
+	
+	private KnobFigure createKnob(KnobFigure k, Composite parent)
+	{
+		if(k !=null)return k;
+		Canvas canvas = new Canvas(parent, SWT.BORDER);
+		GridData data = new GridData();
+		data.heightHint = 150;
+		data.widthHint = 150;
+		canvas.setLayoutData(data);
+		LightweightSystem lws = new LightweightSystem(canvas);
+		k = new KnobFigure();
+		k.setRange(0, 360);
+		k.setValue(0);
+		lws.setContents(k);
+
+		final KnobFigure temp = k;
+		k.addMouseListener(new MouseListener(){
+			@Override
+			public void mouseDoubleClicked(MouseEvent arg0) {
+			   int value = (int) ((temp.getValue() +90 ) /90)*90 %360;
+			    temp.setValue(value);
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+			}});
+
+		return k;
+		
+	}
+	
+
 
 	public void addKnobMouseListener(MouseListener l) {
-		knob.addMouseListener(l);
+		knob1.addMouseListener(l);
 	}
 
 	@Inject
@@ -258,9 +304,11 @@ public class ChartView extends ViewPart {
 		parent.setLayout(NLitesStandardSWTFactory.createGridLayout(2));
 		Canvas leftCanvas = createLeftCanvas(parent);
 
-		// getKnob(leftCanvas);
-		 getGauge(leftCanvas);
+		createGauge(leftCanvas);
 		getButtonLaserOnOff(leftCanvas);
+		createKnob1(leftCanvas);
+		createKnob2(leftCanvas);
+		createKnob3(leftCanvas);
 		getButtonA180(leftCanvas);
 		getButtonCmd3(leftCanvas);
 		getButtonCmd4(leftCanvas);
@@ -270,7 +318,6 @@ public class ChartView extends ViewPart {
 		getButtonCmd8(leftCanvas);
 		getButtonCmd9(leftCanvas);
 		getButtonCmd10(leftCanvas);
-
 
 		GridData gdata = NLitesStandardSWTFactory.createFilledGridData();
 
