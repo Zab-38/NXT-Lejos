@@ -320,22 +320,15 @@ public class SciFair2015ChartView extends ChartView {
 		 k.addMouseListener(new MouseListener(){
 
 			@Override
-			public void mouseDoubleClicked(MouseEvent arg0) {
-				
-				
-			}
+			public void mouseDoubleClicked(MouseEvent arg0) {}
 
 			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
+			public void mousePressed(MouseEvent arg0) {}
 
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
 				CmdRotateFilter cmd = new CmdRotateFilter(1, (int)k.getValue());
 				cmd.sendCommand();
-				
 			}});
 		 return k;
 	}
@@ -348,8 +341,28 @@ public class SciFair2015ChartView extends ChartView {
 		k.addMouseListener(new MouseListener(){
 
 			@Override
+			public void mouseDoubleClicked(MouseEvent arg0) {}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				CmdRotateFilter cmd = new CmdRotateFilter(2, (int)k.getValue());
+				cmd.sendCommand();
+			}});
+		
+		return k;
+	}
+	
+	
+	@Override
+	public KnobFigure createKnob3(Composite parent) {
+		final KnobFigure k =  super.createKnob3(parent);
+		k.addMouseListener(new MouseListener(){
+
+			@Override
 			public void mouseDoubleClicked(MouseEvent arg0) {
-				
 			}
 
 			@Override
@@ -358,10 +371,12 @@ public class SciFair2015ChartView extends ChartView {
 
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				CmdRotateFilter cmd = new CmdRotateFilter(2, (int)k.getValue());
+				CmdRotateFilter cmd = new CmdRotateFilter(3, (int)k.getValue());
 				cmd.sendCommand();
 			}});
-		return super.createKnob2(parent);
+		
+		
+		return k;
 	}
 
 //	@Override
