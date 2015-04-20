@@ -120,8 +120,7 @@ public class SensorPower extends BaseLejos {
 					}
 				} else if (c == 11) {
 					SensorPort.S1.setPowerType(0);
-				} else 
-					if(c==20)
+				} else if(c==20)
 				{
 					
 					double voltage = voltageSensor.readVoltage();
