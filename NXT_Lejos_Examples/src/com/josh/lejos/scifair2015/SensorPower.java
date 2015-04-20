@@ -130,7 +130,7 @@ public class SensorPower extends BaseLejos {
 				}
 				  
 				
-				else if (c == 20) {
+				else if (c == 30) {
 					int motor = readInt();
 					int position = readInt();
 					switch(motor)

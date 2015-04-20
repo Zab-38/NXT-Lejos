@@ -7,7 +7,7 @@ public class CmdRotateFilter extends Command {
 	private int position;
 	private int motorNumber;
 	public CmdRotateFilter(int motorNumber, int position) {
-		cmd = 20;
+		cmd = 30;
 		this.motorNumber = motorNumber;
 		this.position = position;
 	}
