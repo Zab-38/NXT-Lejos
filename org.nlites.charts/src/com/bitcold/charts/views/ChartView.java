@@ -30,6 +30,7 @@ import com.google.inject.Inject;
 public class ChartView extends ViewPart {
 	public static final String ID = "com.bitcold.charts";
 
+	private int widthHeight = 120;
 	private ChartControl chartControl;
 	private Button buttonCmd1;
 	private KnobFigure knob1;
@@ -119,7 +120,7 @@ public class ChartView extends ViewPart {
 		initImageResources(parent);
 		buttonCmd1 = createButton(buttonCmd1, parent, "");
 		buttonCmd1.setImage(off);
-		GridData gd = new GridData(150, 150);
+		GridData gd = new GridData(widthHeight, widthHeight);
 		buttonCmd1.setLayoutData(gd);
 
 		buttonCmd1.addSelectionListener(new SelectionListener() {
@@ -218,8 +219,8 @@ public class ChartView extends ViewPart {
 			return gauge;
 		Canvas canvas = new Canvas(parent, SWT.BORDER);
 		GridData data = new GridData();
-		data.heightHint = 150;
-		data.widthHint = 150;
+		data.heightHint = widthHeight;
+		data.widthHint = widthHeight;
 		canvas.setLayoutData(data);
 
 		LightweightSystem lws = new LightweightSystem(canvas);
@@ -252,8 +253,8 @@ public class ChartView extends ViewPart {
 		if(k !=null)return k;
 		Canvas canvas = new Canvas(parent, SWT.BORDER);
 		GridData data = new GridData();
-		data.heightHint = 150;
-		data.widthHint = 150;
+		data.heightHint = widthHeight;
+		data.widthHint = widthHeight;
 		canvas.setLayoutData(data);
 		LightweightSystem lws = new LightweightSystem(canvas);
 		k = new KnobFigure();
@@ -265,7 +266,7 @@ public class ChartView extends ViewPart {
 		k.addMouseListener(new MouseListener(){
 			@Override
 			public void mouseDoubleClicked(MouseEvent arg0) {
-			   int value = (int) ((temp.getValue() +90 ) /90)*90 %360;
+			   int value = (int) ((temp.getValue() +15 ) /15)*15 %360;
 			    temp.setValue(value);
 			}
 
@@ -333,7 +334,7 @@ public class ChartView extends ViewPart {
 		Canvas leftCanvas = new Canvas(parent, SWT.None);
 		leftCanvas.setBackground(NLitesStandardSWTFactory.honeyDew);
 		GridData data = new GridData(SWT.BEGINNING, SWT.BEGINNING, false, true);
-		data.widthHint = 150;
+		data.widthHint = widthHeight;
 		data.grabExcessVerticalSpace = true;
 		leftCanvas.setLayoutData(data);
 		leftCanvas.setLayout(NLitesStandardSWTFactory.createGridLayout(1));
