@@ -135,13 +135,13 @@ public class SensorPower extends BaseLejos {
 					switch(motor)
 					{
 					case 1:
-						Motor.A.rotate(position, true);
+						Motor.A.rotateTo(position, true);
 						break;
 					case 2:
-						Motor.B.rotate(position,true);
+						Motor.B.rotateTo(position,true);
 						break;
 					case 3:	
-						Motor.C.rotate(position,true);
+						Motor.C.rotateTo(position,true);
 						break;
 					}
 					
