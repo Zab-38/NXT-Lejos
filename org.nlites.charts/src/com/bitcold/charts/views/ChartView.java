@@ -225,7 +225,7 @@ public class ChartView extends ViewPart {
 
 		LightweightSystem lws = new LightweightSystem(canvas);
 		gauge = new GaugeFigure();
-		gauge.setRange(0, 60);
+		gauge.setRange(0, 70);
 		gauge.setValue(0);
 		gauge.setLoLevel(0);
 		gauge.setHihiLevel(400);
@@ -266,7 +266,7 @@ public class ChartView extends ViewPart {
 		k.addMouseListener(new MouseListener(){
 			@Override
 			public void mouseDoubleClicked(MouseEvent arg0) {
-			   int value = (int) ((temp.getValue() +15 ) /15)*15 %360;
+			   int value = (int) ((temp.getValue() + 2 ) /2)*2 %360;
 			    temp.setValue(value);
 			}
 
